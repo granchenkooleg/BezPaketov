@@ -157,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				56EB71221E9A5C5400BA1A8C /* BezPaketov */,
-				56EB718C1E9A65C500BA1A8C /* ViewControllers */,
 				56EB713C1E9A5FAC00BA1A8C /* Slim */,
 				56EB71211E9A5C5400BA1A8C /* Products */,
 				8F8C5847425E978959F5027A /* Pods */,
@@ -190,8 +189,9 @@
 				56EB714B1E9A624E00BA1A8C /* BezPaketov.ttf */,
 				56EB71451E9A621E00BA1A8C /* Assets.xcassets */,
 				56EB715B1E9A653400BA1A8C /* Extension */,
-				56EB71761E9A656200BA1A8C /* View */,
 				56EB71811E9A659800BA1A8C /* Model */,
+				56EB71761E9A656200BA1A8C /* View */,
+				56EB718C1E9A65C500BA1A8C /* ViewControllers */,
 			);
 			path = BezPaketov;
 			sourceTree = "<group>";
@@ -268,7 +268,6 @@
 				56EB71D61E9A69BF00BA1A8C /* WeightViewController */,
 			);
 			name = ViewControllers;
-			path = BezPaketov;
 			sourceTree = "<group>";
 		};
 		56EB71A91E9A686800BA1A8C /* BaseViewController */ = {

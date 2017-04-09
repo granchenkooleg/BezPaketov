@@ -142,6 +142,12 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
         super.viewWillAppear(animated)
         quantity = 1
         quantityLabel.text = "\(quantity) шт."
+        //Fix scroll in textView
+        descriptionView.isScrollEnabled = false
+    }
+    //Fix scroll in textView
+    override func viewDidAppear(_ animated: Bool) {
+        descriptionView.isScrollEnabled = true
     }
     
     // Setting overPlusAndMinusButton
