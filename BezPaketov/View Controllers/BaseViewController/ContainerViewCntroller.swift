@@ -203,8 +203,11 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
                 }
                 completion()
                 
+                let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+                DispatchQueue.main.asyncAfter(deadline: when) {
                 self?.progressHUD.hide()
                 self?.backgroundImage.removeFromSuperview()
+                }
             })
         }
     }

@@ -255,17 +255,17 @@
 			isa = PBXGroup;
 			children = (
 				56EB71A91E9A686800BA1A8C /* BaseViewController */,
-				56EB71AE1E9A68AB00BA1A8C /* BasketViewController */,
-				56EB71B31E9A68CB00BA1A8C /* CategoryViewController */,
-				56EB71B81E9A68E900BA1A8C /* CheckViewController */,
-				56EB71BB1E9A68FF00BA1A8C /* DetailsProductViewController */,
-				56EB71BE1E9A691500BA1A8C /* DrawingUpOfAnOrderVC */,
-				56EB71C11E9A692F00BA1A8C /* FavoriteProductsViewController */,
-				56EB71C41E9A695600BA1A8C /* ListOfProductsByWeightViewController */,
 				56EB71C91E9A696D00BA1A8C /* MainViewController */,
-				56EB71D01E9A698400BA1A8C /* PaymentViewController */,
-				56EB71D31E9A69A500BA1A8C /* SearchViewController */,
+				56EB71B31E9A68CB00BA1A8C /* CategoryViewController */,
+				56EB71C41E9A695600BA1A8C /* ListOfProductsByWeightViewController */,
 				56EB71D61E9A69BF00BA1A8C /* WeightViewController */,
+				56EB71BB1E9A68FF00BA1A8C /* DetailsProductViewController */,
+				56EB71C11E9A692F00BA1A8C /* FavoriteProductsViewController */,
+				56EB71AE1E9A68AB00BA1A8C /* BasketViewController */,
+				56EB71BE1E9A691500BA1A8C /* DrawingUpOfAnOrderVC */,
+				56EB71D01E9A698400BA1A8C /* PaymentViewController */,
+				56EB71B81E9A68E900BA1A8C /* CheckViewController */,
+				56EB71D31E9A69A500BA1A8C /* SearchViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
