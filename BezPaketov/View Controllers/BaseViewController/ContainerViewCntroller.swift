@@ -211,6 +211,30 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
             })
         }
     }
+    
+    // Call by phone number
+    @IBAction func phoneNumber_1(_ sender: Any) {
+        callNumber(phoneNumber: "0673456789")
+    }
+    
+    @IBAction func phoneNumber_2(_ sender: Any) {
+        callNumber(phoneNumber: "380635676767")
+    }
+    
+    private func callNumber(phoneNumber:String) {
+        
+//        guard let number = URL(string: "telprompt://" + phoneNumber) else { return }
+//        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+        
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
 }
 
 class Menu: UIView, UITableViewDataSource, UITableViewDelegate {
@@ -283,6 +307,8 @@ class Menu: UIView, UITableViewDataSource, UITableViewDelegate {
         }
         return cell
     }
+    
+    
     
     // NotificationCenter from CatVC
     func methodOfReceivedNotification2(notification: Notification) {
