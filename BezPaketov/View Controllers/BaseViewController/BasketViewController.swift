@@ -111,14 +111,33 @@ class BasketViewController: BaseViewController, UITableViewDataSource, UITableVi
     // MARK: Sender to DrawingUpOfAnOrderVC
     @IBAction func DrawingUpOrderClick(_ sender: UIButton) {
         
-        // Checking empty basket for next step
-        guard (Double(totalPriceInCart())) ?? 0.0 > 0.0 else {
+        // Check empty basket for next step
+        guard ((Double(totalPriceInCart())) != 0.0) else {
             let alertController = UIAlertController(title: "Ваш пакет пуст", message: "", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .default) { action in
                 // ...
             }
             alertController.addAction(OKAction)
             self.present(alertController, animated: true)
+            
+            return
+        }
+        
+        // Check price value
+        guard (Double(totalPriceInCart()))! >= (Double(300))  else {
+            let alertController = UIAlertController(title: "Доставка на сумму до 300грн. платная", message: "Стоимость доставки 30-50грн.", preferredStyle: .actionSheet)
+            
+            let buyMore = UIAlertAction(title: "Купить ещё", style: .default) { action -> Void in
+                //Do some stuff
+            }
+            alertController.addAction(buyMore)
+            self.present(alertController, animated: true)
+            
+            let nextAction = UIAlertAction(title: "Завершить заказ", style: .default) {action -> Void in
+                let navToDrawUpOrder = UIStoryboard.main["drawingUpOrder"] as? DrawingUpOfAnOrderViewController
+                navToDrawUpOrder?.addToContainer()
+            }
+            alertController.addAction(nextAction)
             
             return
         }
