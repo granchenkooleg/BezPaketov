@@ -133,7 +133,7 @@ class BasketViewController: BaseViewController, UITableViewDataSource, UITableVi
             alertController.addAction(buyMore)
             self.present(alertController, animated: true)
             
-            let nextAction = UIAlertAction(title: "Завершить заказ", style: .default) {action -> Void in
+            let nextAction = UIAlertAction(title: "Оформить заказ", style: .default) {action -> Void in
                 let navToDrawUpOrder = UIStoryboard.main["drawingUpOrder"] as? DrawingUpOfAnOrderViewController
                 navToDrawUpOrder?.addToContainer()
             }

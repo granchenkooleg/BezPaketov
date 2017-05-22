@@ -214,11 +214,11 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     // Call by phone number
     @IBAction func phoneNumber_1(_ sender: Any) {
-        callNumber(phoneNumber: "0673456789")
+        callNumber(phoneNumber: "+380673456789")
     }
     
     @IBAction func phoneNumber_2(_ sender: Any) {
-        callNumber(phoneNumber: "380635676767")
+        callNumber(phoneNumber: "+380635676767")
     }
     
     private func callNumber(phoneNumber:String) {
