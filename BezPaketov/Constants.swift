@@ -15,7 +15,7 @@ struct Constants {
     static let screenHeight: CGFloat = UIScreen.main.bounds.height
     static let isPhone: Bool = UI_USER_INTERFACE_IDIOM() == .phone
     static let groupIdentifier = "group.com.EP.BinarySwipe"
-    static let baseURLString = "http://bez-paketov.ru/api/"
+    static let baseURLString = "http://bezpaketov.com.ua/api/"
     static let FBClientID = "840339496099378"
     static let FBClientSecret = "a0ef27eda5e14c9981dc5caefd163da5"
     static let videoLinkID = ""
