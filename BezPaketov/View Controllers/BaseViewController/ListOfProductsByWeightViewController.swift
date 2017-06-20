@@ -180,7 +180,8 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         
         cell.nameLabel?.text = productDetails.name
         cell.descriptionLabel?.text = productDetails.description_
-        cell.weightLabel?.text = productDetails.weight + " \(productDetails.units)"
+        //cell.weightLabel?.text = productDetails.weight + " \(productDetails.units)" // old version code 
+        cell.weightLabel?.text = productDetails.valuesValueForWeightAfterRework + " \(productDetails.valuesUnitForWeightAfterRework)"
         cell.priceOldLabel?.text = productDetails.price + " грн."
         
         // if price_sale != 0.00 грн, set it

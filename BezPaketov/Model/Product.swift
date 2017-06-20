@@ -33,7 +33,8 @@ struct Products {
 }
 
 class Product : Object {
-    
+    dynamic var valuesUnitForWeightAfterRework = ""
+    dynamic var valuesValueForWeightAfterRework = ""
     dynamic var favoriteProductOfUser = false
     dynamic var id = ""
     dynamic var description_ = ""
@@ -67,7 +68,9 @@ class Product : Object {
         }
     }
     
-    @discardableResult class func setupProduct( id: String = "",
+    @discardableResult class func setupProduct( valuesUnitForWeightAfterRework: String = "",
+                                                valuesValueForWeightAfterRework: String = "",
+                                                id: String = "",
                                                 description_: String = "",
                                                 proteins: String = "",
                                                 calories: String = "",
@@ -89,6 +92,8 @@ class Product : Object {
                                                 image: Data?  = nil) -> Product {
         
         let productData: Dictionary<String, Any> = [
+            "valuesUnitForWeightAfterRework" : valuesUnitForWeightAfterRework ,
+            "valuesValueForWeightAfterRework" : valuesValueForWeightAfterRework,
             "id" :          id,
             "description_" :   description_,
             "proteins" :    proteins,

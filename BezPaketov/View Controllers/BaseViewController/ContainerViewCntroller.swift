@@ -169,6 +169,8 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
                 guard let weakSelf = self else {return}
                 json.forEach { _, json in
                     print ("ContainVC🔵")
+                    let valuesUnitForWeightAfterRework = String(describing: json["values"][0]["unit"])
+                    let valuesValueForWeightAfterRework = String(describing: json["values"][0]["value"])
                     let id = String(describing: json["id"])
                     let created_at = String(describing:json["created_at"])
                     let icon = String(describing:json["icon"])
@@ -199,7 +201,7 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
                     let price_sale = String(describing:json["price_sale"])
                     let image: Data? = nil
                     
-                    Product.setupProduct(id: id, description_: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
+                    Product.setupProduct(valuesUnitForWeightAfterRework: valuesUnitForWeightAfterRework, valuesValueForWeightAfterRework: valuesValueForWeightAfterRework, id: id, description_: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
                 }
                 completion()
                 
