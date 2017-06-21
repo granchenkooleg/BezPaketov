@@ -181,12 +181,12 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         cell.nameLabel?.text = productDetails.name
         cell.descriptionLabel?.text = productDetails.description_
         //cell.weightLabel?.text = productDetails.weight + " \(productDetails.units)" // old version code 
-        cell.weightLabel?.text = productDetails.valuesValueForWeightAfterRework + " \(productDetails.valuesUnitForWeightAfterRework)"
+        cell.weightLabel?.text = "\(productDetails.valuesValueForWeightAfterRework)" + " \(productDetails.valuesUnitForWeightAfterRework)   "
         cell.priceOldLabel?.text = productDetails.price + " грн."
         
         // if price_sale != 0.00 грн, set it
         if productDetails.price_sale != "0.00" {
-            cell.priceSaleLabel?.text = productDetails.price_sale +  "  грн."
+            cell.priceSaleLabel?.text = productDetails.price_sale +  " грн."
             // Create attributed string for strikethroughStyleAttributeName
             let myString = productDetails.price + " грн."
             let myAttribute = [ NSStrikethroughStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue ]
@@ -218,7 +218,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         }
         
         let detailsProductVC = Storyboard.DetailsProduct.instantiate()
-        detailsProductVC.weightDetailsVC = productsList[indexPath.row].weight + " \(productsList[indexPath.row].units)"
+        detailsProductVC.weightDetailsVC = productsList[indexPath.row].valuesValueForWeightAfterRework + " \(productsList[indexPath.row].valuesUnitForWeightAfterRework)"
         detailsProductVC.categoryIdProductDetailsVC = productsList[indexPath.row].category_id
         detailsProductVC.priceSaleDetailsVC = productsList[indexPath.row].price_sale
         detailsProductVC.idProductDetailsVC = productsList[indexPath.row].id
