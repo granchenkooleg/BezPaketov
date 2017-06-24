@@ -183,7 +183,7 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         }
         
         let detailsProductVC = Storyboard.DetailsProduct.instantiate()
-        detailsProductVC.weightDetailsVC = searchProduct[indexPath.row].weight + " " + searchProduct[indexPath.row].units
+        //detailsProductVC.weightDetailsVC = searchProduct[indexPath.row].weight + " " + searchProduct[indexPath.row].units
         detailsProductVC.categoryIdProductDetailsVC = searchProduct[indexPath.row].category_id
         detailsProductVC.priceSaleDetailsVC = searchProduct[indexPath.row].price_sale
         detailsProductVC.idProductDetailsVC = searchProduct[indexPath.row].id

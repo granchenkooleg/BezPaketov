@@ -220,7 +220,7 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
     
     func detailsVC (indexPath: IndexPath) {
         let detailsProductVC = Storyboard.DetailsProduct.instantiate()
-        detailsProductVC.weightDetailsVC = _productsList[indexPath.row].weight + " \(_productsList[indexPath.row].units)"
+        //detailsProductVC.weightDetailsVC = _productsList[indexPath.row].weight + " \(_productsList[indexPath.row].units)"
         detailsProductVC.categoryIdProductDetailsVC = _productsList[indexPath.row].category_id
         detailsProductVC.priceSaleDetailsVC = _productsList[indexPath.row].price_sale
         detailsProductVC.idProductDetailsVC = _productsList[indexPath.row].id

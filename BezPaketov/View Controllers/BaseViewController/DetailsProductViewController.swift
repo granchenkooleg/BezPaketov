@@ -32,7 +32,8 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
     @IBOutlet weak var weightLabel: UILabel!
     
     // For favoriteProductOfUser
-    var weightDetailsVC: String?
+    var weightValueDetailsVC: String?
+    var weightUnitDetailsVC: String?
     var categoryIdProductDetailsVC: String?
     var priceSaleDetailsVC: String?
     var idProductDetailsVC: String!
@@ -49,9 +50,19 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
     var descriptionDetailsVC: String?
     var priceDetailsVC: String?
     var quantity: Int = 1
+    var quantityInitial: Int = 0
+    var weightValueInt: Int = 0
+    var weightValueDouble: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Install initional value quantity
+        if let x = weightValueDetailsVC {
+            //            quantity = Int(x) ?? 0
+            quantityInitial = Int(x) ?? 0
+            weightValueInt = Int(x) ?? 0
+        }
         
         heartButton.isHidden = true
         
@@ -122,7 +133,7 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
             priceLabel?.text = ((priceDetailsVC ?? "") + " грн.")
         }
         
-        weightLabel.text = weightDetailsVC
+        weightLabel.text = (weightValueDetailsVC!) + " \(weightUnitDetailsVC!) "
         nameLabel.text = nameHeaderTextDetailsVC
         name_2Label.text = nameLabel.text
         descriptionView.text = descriptionDetailsVC ?? ""
@@ -140,11 +151,12 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        quantity = 1
-        quantityLabel.text = "\(quantity) шт."
+        quantityLabel.text = "\(weightValueDetailsVC!)" + " \(weightUnitDetailsVC!) "
+        
         //Fix scroll in textView
         descriptionView.isScrollEnabled = false
     }
+    
     //Fix scroll in textView
     override func viewDidAppear(_ animated: Bool) {
         descriptionView.isScrollEnabled = true
@@ -214,14 +226,38 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
     }
     
     @IBAction func addProduct(sender: AnyObject) {
-        quantity += 1
-        quantityLabel.text = "\(quantity) шт."
+        if weightUnitDetailsVC != "шт"
+        {
+            weightValueInt += quantityInitial
+            if weightValueInt >= 1000 && weightUnitDetailsVC == "гр" {
+                weightValueDouble = Double(weightValueInt)/1000
+                quantityLabel.text = "\(weightValueDouble)" + " кг"
+                return
+            }
+            quantityLabel.text = "\(weightValueInt)" + " \(weightUnitDetailsVC!)"
+            
+        } else {
+            quantity += 1
+            quantityLabel.text = "\(quantity) шт"
+        }
     }
     
     @IBAction func subProduct(sender: AnyObject) {
-        guard quantity > 1 else { return }
-        quantity -= 1
-        quantityLabel.text = "\(quantity) шт."
+        if weightUnitDetailsVC != "шт" {
+            guard weightValueInt > quantityInitial else {return}
+            weightValueInt -= quantityInitial
+            if weightValueInt >= 1000 {
+                weightValueDouble = Double(weightValueInt)/1000
+                quantityLabel.text = "\(weightValueDouble)" + " кг"
+                return
+            }
+            quantityLabel.text = "\(weightValueInt)" + " \(weightUnitDetailsVC!)"
+            
+        } else {
+            guard quantity > 1 else { return }
+            quantity -= 1
+            quantityLabel.text = "\(quantity) шт"
+        }
     }
     
     // Button cart
@@ -238,10 +274,14 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
         updateProduct()
         updateProductInfo()
         
-        if quantity > 1 {
+        if weightUnitDetailsVC != "шт" {
+            weightValueInt = quantityInitial
+            quantityLabel.text = "\(weightValueInt)" + " \(weightUnitDetailsVC!)"
+        } else {
             quantity = 1
+            quantityLabel.text = "\(quantity)" + " \(weightUnitDetailsVC!)"
         }
-        quantityLabel.text = "\(quantity) шт."
+        
         
     }
     
@@ -249,11 +289,15 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
         let realm = try! Realm()
         if let product = realm.objects(ProductsForRealm.self).filter("id  == [c] %@", idProductDetailsVC).first {
             try! realm.write {
-                product.quantity = "\((Int(product.quantity) ?? 0) + quantity)"
+                if weightUnitDetailsVC == "шт" {
+                    product.quantity = "\((Int(product.quantity) ?? 0) + quantity)"
+                } else {
+                    product.weight = "\((Int(product.weight!) ?? 0) + weightValueInt)"
+                }
             }
         } else {
             let image: Data? = nil
-            let _ = ProductsForRealm.setupProduct(id: idProductDetailsVC ?? "", descriptionForProduct: descriptionDetailsVC ?? "", proteins: proteinsDetailsVC ?? "", calories: caloriesDetailsVC ?? "", zhiry: zhiryDetailsVC ?? "", favorite: "", category_id: "", brand: brandDetailsVC ?? "", price_sale: priceSaleDetailsVC ?? "", weight: "", status: "", expire_date: expire_dateDetailsVC ?? "", price: priceDetailsVC ?? "", created_at: created_atDetailsVC ?? "", icon: iconDetailsVC ?? "", category_name: "", name: nameHeaderTextDetailsVC ?? "" , uglevody: uglevodyDetailsVC ?? "" , units: "", quantity: "\(quantity)", image: image)
+            let _ = ProductsForRealm.setupProduct(id: idProductDetailsVC ?? "", descriptionForProduct: descriptionDetailsVC ?? "", proteins: proteinsDetailsVC ?? "", calories: caloriesDetailsVC ?? "", zhiry: zhiryDetailsVC ?? "", favorite: "", category_id: "", brand: brandDetailsVC ?? "", price_sale: priceSaleDetailsVC ?? "", weight: "\(weightValueInt)", status: "", expire_date: expire_dateDetailsVC ?? "", price: priceDetailsVC ?? "", created_at: created_atDetailsVC ?? "", icon: iconDetailsVC ?? "", category_name: "", name: nameHeaderTextDetailsVC ?? "" , uglevody: uglevodyDetailsVC ?? "" , units: weightUnitDetailsVC!, quantity: "\(quantity)", image: image)
         }
     }
 }

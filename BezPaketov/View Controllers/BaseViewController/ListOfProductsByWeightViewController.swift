@@ -162,7 +162,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
             } else {
                 let image: Data? = nil
                 
-                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: "", status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: "", quantity: "1", image: image)
+                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "1", image: image)
             }
             
             Dispatch.mainQueue.async ({
@@ -180,7 +180,6 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         
         cell.nameLabel?.text = productDetails.name
         cell.descriptionLabel?.text = productDetails.description_
-        //cell.weightLabel?.text = productDetails.weight + " \(productDetails.units)" // old version code 
         cell.weightLabel?.text = "\(productDetails.valuesValueForWeightAfterRework)" + " \(productDetails.valuesUnitForWeightAfterRework)   "
         cell.priceOldLabel?.text = productDetails.price + " грн."
         
@@ -218,7 +217,8 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         }
         
         let detailsProductVC = Storyboard.DetailsProduct.instantiate()
-        detailsProductVC.weightDetailsVC = productsList[indexPath.row].valuesValueForWeightAfterRework + " \(productsList[indexPath.row].valuesUnitForWeightAfterRework)"
+        detailsProductVC.weightValueDetailsVC = productsList[indexPath.row].valuesValueForWeightAfterRework
+        detailsProductVC.weightUnitDetailsVC = productsList[indexPath.row].valuesUnitForWeightAfterRework
         detailsProductVC.categoryIdProductDetailsVC = productsList[indexPath.row].category_id
         detailsProductVC.priceSaleDetailsVC = productsList[indexPath.row].price_sale
         detailsProductVC.idProductDetailsVC = productsList[indexPath.row].id
