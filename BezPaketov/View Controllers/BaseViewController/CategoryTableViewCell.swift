@@ -18,7 +18,7 @@ class CategoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        thubnailImageView?.layer.cornerRadius = 30
+        thubnailImageView?.layer.cornerRadius = 33
         thubnailImageView?.layer.masksToBounds = true
     }
     

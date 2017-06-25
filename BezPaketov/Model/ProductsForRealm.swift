@@ -23,6 +23,7 @@ class ProductsForRealm : Object {
     dynamic var brand: String? = ""
     dynamic var price_sale: String? = ""
     dynamic var weight: String? = ""
+    dynamic var weightAdd: String? = ""
     dynamic var status: String? = ""
     dynamic var expire_date: String? = ""
     dynamic var price: String? = ""
@@ -49,7 +50,7 @@ class ProductsForRealm : Object {
         }
     }
     
-    class func setupProduct(id: String = "", descriptionForProduct: String = "", proteins: String = "", calories: String = "", zhiry: String = "", favorite: String = "", category_id: String = "", brand: String = "", price_sale: String = "", weight: String = "", status: String = "", expire_date: String = "", price: String = "", created_at: String = "", icon: String = "", category_name: String = "", name: String = "", uglevody: String = "", units: String = "", quantity: String = "", image: Data? = nil) -> ProductsForRealm {
+    class func setupProduct(id: String = "", descriptionForProduct: String = "", proteins: String = "", calories: String = "", zhiry: String = "", favorite: String = "", category_id: String = "", brand: String = "", price_sale: String = "", weight: String = "", weightAdd: String = "", status: String = "", expire_date: String = "", price: String = "", created_at: String = "", icon: String = "", category_name: String = "", name: String = "", uglevody: String = "", units: String = "", quantity: String = "", image: Data? = nil) -> ProductsForRealm {
         
         let productData: Dictionary <String, Any> = [
             "id" : id,
@@ -62,6 +63,7 @@ class ProductsForRealm : Object {
             "brand" : brand,
             "price_sale" : price_sale,
             "weight" : weight,
+            "weightAdd" : weightAdd,
             "status" : status,
             "expire_date" : expire_date,
             "price" : price,

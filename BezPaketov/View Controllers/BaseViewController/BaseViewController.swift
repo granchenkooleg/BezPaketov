@@ -234,6 +234,7 @@ class BaseViewController: UIViewController, KeyboardNotifying {
         let x = productsInBasket.map { Int($0.quantity) ?? 0 }.reduce(0, { $0 + $1 })
         if x > 0 {
             self.quantityCartLabel?.text = "\(productsInBasket.map { Int($0.quantity) ?? 0 }.reduce(0, { $0 + $1 }))"
+//            self.quantityCartLabel?.text = "\(pro)"
             totalPriceLabel?.text = (totalPriceInCart() + " грн.")
         } else {
             self.quantityCartLabel?.text = ""
@@ -243,13 +244,29 @@ class BaseViewController: UIViewController, KeyboardNotifying {
     
     //  Total price
     func totalPriceInCart() -> String {
-        var totalPrice: Float = 0
+        var totalPrice: Float = 0.0
+        var totalPrice_: Float = 0.0
         for product in  productsInBasket {
             // Make a choice prices for to display prices
             if Double(product.price_sale ?? "") ?? 0 > Double(0.00) {
-                totalPrice += (Float(product.price_sale ?? "") ?? 0.0) * (Float(product.quantity) ?? 0.0)
+                
+                switch (product.units ?? "") {
+                case "шт":
+                    totalPrice += (Float(product.price_sale ?? "") ?? 0.0) * (Float(product.quantity) ?? 0.0)
+                default:
+                    totalPrice_ = (Float(product.weightAdd ?? "") ?? 0.0) / (Float(product.weight ?? "") ?? 0.0)
+                    totalPrice += totalPrice_ * Float(product.price_sale ?? "")!
+                }
+                
             } else {
-                totalPrice += (Float(product.price ?? "") ?? 0.0) * (Float(product.quantity) ?? 0.0)
+                
+                switch (product.units ?? "") {
+                case "шт":
+                    totalPrice += (Float(product.price ?? "") ?? 0.0) * (Float(product.quantity) ?? 0.0)
+                default:
+                    totalPrice_ = (Float(product.weightAdd ?? "") ?? 0.0) / (Float(product.weight ?? "") ?? 0.0)
+                    totalPrice += totalPrice_ * Float(product.price ?? "")!
+                }
             }
         }
         

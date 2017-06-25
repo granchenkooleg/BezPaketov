@@ -59,7 +59,6 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
         
         // Install initional value quantity
         if let x = weightValueDetailsVC {
-            //            quantity = Int(x) ?? 0
             quantityInitial = Int(x) ?? 0
             weightValueInt = Int(x) ?? 0
         }
@@ -133,7 +132,7 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
             priceLabel?.text = ((priceDetailsVC ?? "") + " грн.")
         }
         
-        weightLabel.text = (weightValueDetailsVC!) + " \(weightUnitDetailsVC!) "
+        weightLabel.text = (weightValueDetailsVC ?? "") + " \(weightUnitDetailsVC ?? "") "
         nameLabel.text = nameHeaderTextDetailsVC
         name_2Label.text = nameLabel.text
         descriptionView.text = descriptionDetailsVC ?? ""
@@ -229,6 +228,7 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
         if weightUnitDetailsVC != "шт"
         {
             weightValueInt += quantityInitial
+            // For short entry
             if weightValueInt >= 1000 && weightUnitDetailsVC == "гр" {
                 weightValueDouble = Double(weightValueInt)/1000
                 quantityLabel.text = "\(weightValueDouble)" + " кг"
@@ -246,6 +246,7 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
         if weightUnitDetailsVC != "шт" {
             guard weightValueInt > quantityInitial else {return}
             weightValueInt -= quantityInitial
+            // For short entry
             if weightValueInt >= 1000 {
                 weightValueDouble = Double(weightValueInt)/1000
                 quantityLabel.text = "\(weightValueDouble)" + " кг"
@@ -274,6 +275,7 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
         updateProduct()
         updateProductInfo()
         
+        // For reset value
         if weightUnitDetailsVC != "шт" {
             weightValueInt = quantityInitial
             quantityLabel.text = "\(weightValueInt)" + " \(weightUnitDetailsVC!)"
@@ -289,15 +291,12 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
         let realm = try! Realm()
         if let product = realm.objects(ProductsForRealm.self).filter("id  == [c] %@", idProductDetailsVC).first {
             try! realm.write {
-                if weightUnitDetailsVC == "шт" {
-                    product.quantity = "\((Int(product.quantity) ?? 0) + quantity)"
-                } else {
-                    product.weight = "\((Int(product.weight!) ?? 0) + weightValueInt)"
-                }
+                product.quantity = "\((Int(product.quantity) ?? 0) + quantity)"
+                product.weightAdd = "\((Int(product.weightAdd!) ?? 0) + weightValueInt)"
             }
         } else {
             let image: Data? = nil
-            let _ = ProductsForRealm.setupProduct(id: idProductDetailsVC ?? "", descriptionForProduct: descriptionDetailsVC ?? "", proteins: proteinsDetailsVC ?? "", calories: caloriesDetailsVC ?? "", zhiry: zhiryDetailsVC ?? "", favorite: "", category_id: "", brand: brandDetailsVC ?? "", price_sale: priceSaleDetailsVC ?? "", weight: "\(weightValueInt)", status: "", expire_date: expire_dateDetailsVC ?? "", price: priceDetailsVC ?? "", created_at: created_atDetailsVC ?? "", icon: iconDetailsVC ?? "", category_name: "", name: nameHeaderTextDetailsVC ?? "" , uglevody: uglevodyDetailsVC ?? "" , units: weightUnitDetailsVC!, quantity: "\(quantity)", image: image)
+            let _ = ProductsForRealm.setupProduct(id: idProductDetailsVC ?? "", descriptionForProduct: descriptionDetailsVC ?? "", proteins: proteinsDetailsVC ?? "", calories: caloriesDetailsVC ?? "", zhiry: zhiryDetailsVC ?? "", favorite: "", category_id: "", brand: brandDetailsVC ?? "", price_sale: priceSaleDetailsVC ?? "", weight: "\(weightValueDetailsVC ?? "")", weightAdd: "\(weightValueInt)", status: "", expire_date: expire_dateDetailsVC ?? "", price: priceDetailsVC ?? "", created_at: created_atDetailsVC ?? "", icon: iconDetailsVC ?? "", category_name: "", name: nameHeaderTextDetailsVC ?? "" , uglevody: uglevodyDetailsVC ?? "" , units: weightUnitDetailsVC!, quantity: "\(quantity)", image: image)
         }
     }
 }

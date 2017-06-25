@@ -12,7 +12,6 @@ import RealmSwift
 class BasketViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    let allPropertyClassProduct = Product().allProducts()
     
     override func viewDidLoad() {
         updateProductInfo()
@@ -33,18 +32,22 @@ class BasketViewController: BaseViewController, UITableViewDataSource, UITableVi
         let cellIdentifier = "BasketTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BasketTableViewCell
         
-        let allPropertyClassProductForIndexPath = allPropertyClassProduct[indexPath.row]
+        
         let productDetails = productsInBasket[indexPath.row]
         Dispatch.mainQueue.async { _ in
             cell.thubnailImageView?.sd_setImage(with: URL(string: (productDetails.icon) ?? ""))
         }
         cell.productDetail = productDetails
         cell.descriptionLabel?.text = productDetails.descriptionForProduct
+        
+        // for cell----------
         cell.productID = productDetails.id
         cell.quantity = Int(productDetails.quantity) ?? 0
+        //-------------------
+        
         cell.nameLabel?.text = productDetails.name
         
-        cell.weightLabel?.text = "\(allPropertyClassProductForIndexPath.valuesValueForWeightAfterRework)" + " \(productDetails.units!)  "
+        cell.weightLabel?.text = "\(productDetails.weight ?? "")" + " \(productDetails.units ?? "")  "
         
         // Make a choice prices for to display prices
         if Double(productDetails.price_sale ?? "") ?? 0 > Double(0.00) {
@@ -54,10 +57,13 @@ class BasketViewController: BaseViewController, UITableViewDataSource, UITableVi
         }
         
         if productDetails.units == "шт" {
-        cell.quantityLabel?.text = productDetails.quantity + " шт"
+            cell.quantityLabel?.text = productDetails.quantity + " шт"
         } else {
-        cell.quantityLabel?.text = productDetails.weight! + " \(productDetails.units!)"
-            
+            if (Int(productDetails.weightAdd ?? "") ?? 0) >= 1000 && (productDetails.units ?? "") == "гр" {
+                cell.quantityLabel?.text = "\((Double(productDetails.weightAdd ?? "") ?? 0.0)  / 1000)" + " кг"
+            } else {
+                cell.quantityLabel?.text = productDetails.weightAdd! + " \(productDetails.units!)"
+            }
         }
         
         cell.completionBlock = {[weak self] in
@@ -192,15 +198,20 @@ class BasketTableViewCell: UITableViewCell {
     var quantity: Int = 0
     var completionBlock: Block?
     var productDetail: ProductsForRealm? = nil
+    var xForWeight: Int = 0
     
-
+   
+    
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
     @IBAction func addProduct(sender: AnyObject) {
         quantity += 1
-        quantityLabel.text = "\(quantity) шт."
+        xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
+        xForWeight += (Int((productDetail?.weight)!)!)
         updateProduct()
         completionBlock?()
     }
@@ -208,7 +219,8 @@ class BasketTableViewCell: UITableViewCell {
     @IBAction func subProduct(sender: AnyObject) {
         guard quantity > 1 else { return }
         quantity -= 1
-        quantityLabel.text = "\(quantity) шт."
+        xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
+        xForWeight -= (Int((productDetail?.weight)!)!)
         updateProduct()
         completionBlock?()
     }
@@ -218,6 +230,7 @@ class BasketTableViewCell: UITableViewCell {
         let product = realm.objects(ProductsForRealm.self).filter("id  == [c] %@", productID).first
         try! realm.write {
             product?.quantity = "\(quantity)"
+            product?.weightAdd = String(xForWeight)
         }
     }
     

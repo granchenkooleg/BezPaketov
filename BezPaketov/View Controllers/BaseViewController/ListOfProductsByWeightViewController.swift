@@ -157,12 +157,13 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
             let realm = try! Realm()
             if let product = realm.objects(ProductsForRealm.self).filter("id  == [c] %@", productDetails.id ).first {
                 try! realm.write {
-                    product.quantity = "\((Int((product.quantity)) ?? 0) + 1)"
+                    product.quantity = "\((Int(product.quantity) ?? 0) + (self?.quantity)!)"
+                    product.weightAdd = "\((Int(product.weightAdd!) ?? 0) + (Int(productDetails.valuesValueForWeightAfterRework))!)"
                 }
             } else {
                 let image: Data? = nil
                 
-                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "1", image: image)
+                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: productDetails.valuesValueForWeightAfterRework, status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "1", image: image)
             }
             
             Dispatch.mainQueue.async ({
