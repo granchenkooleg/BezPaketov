@@ -231,9 +231,9 @@ class BaseViewController: UIViewController, KeyboardNotifying {
         let realm = try! Realm()
         productsInBasket = realm.objects(ProductsForRealm.self)
         // We do check to display the data in the header
-        let x = productsInBasket.map { Int($0.quantity) ?? 0 }.reduce(0, { $0 + $1 })
+        let x = productsInBasket.count
         if x > 0 {
-            self.quantityCartLabel?.text = "\(productsInBasket.map { Int($0.quantity) ?? 0 }.reduce(0, { $0 + $1 }))"
+            self.quantityCartLabel?.text = String(x)
 //            self.quantityCartLabel?.text = "\(pro)"
             totalPriceLabel?.text = (totalPriceInCart() + " грн.")
         } else {

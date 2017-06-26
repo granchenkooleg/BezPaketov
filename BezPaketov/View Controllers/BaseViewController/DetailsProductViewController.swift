@@ -77,6 +77,8 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
             UserRequest.favorite(param as [String : AnyObject], completion: {[weak self] json in
                 json.forEach { _, json in
                     guard (json.isEmpty) == false else {return}
+                    let valuesUnitForWeightAfterRework = String(describing: json["values"][0]["unit"])
+                    let valuesValueForWeightAfterRework = String(describing: json["values"][0]["value"])
                     let id = json["id"].string ?? ""
                     let created_at = json["created_at"].string ?? ""
                     let icon = json["icon"].string ?? ""
@@ -98,7 +100,7 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
                     let units = json["units"].string ?? ""
                     let image = Data()
                     
-                    let list = Products(id: id, description: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
+                    let list = Products(valuesUnitForWeightAfterRework: valuesUnitForWeightAfterRework, valuesValueForWeightAfterRework: valuesValueForWeightAfterRework, id: id, description: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
                     self?.internalProductsForListOfWeightVC.append(list)
                 }
                 
@@ -150,7 +152,7 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        quantityLabel.text = "\(weightValueDetailsVC!)" + " \(weightUnitDetailsVC!) "
+        quantityLabel.text = "\(weightValueDetailsVC ?? "")" + " \(weightUnitDetailsVC ?? "") "
         
         //Fix scroll in textView
         descriptionView.isScrollEnabled = false

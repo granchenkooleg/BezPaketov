@@ -125,11 +125,12 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
             if let product = realm.objects(ProductsForRealm.self).filter("id  == [c] %@", productDetails.id ).first {
                 try! realm.write {
                     product.quantity = "\((Int((product.quantity)) ?? 0) + 1)"
+                    product.weightAdd = "\((Int(product.weightAdd!) ?? 0) + Int(productDetails.valuesValueForWeightAfterRework)!)"
                 }
             } else {
                 let image: Data? = nil
                 
-                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: "", status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: "", quantity: "\(self.quantity)", image: image)
+                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: productDetails.valuesValueForWeightAfterRework, status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: "", quantity: "\(self.quantity)", image: image)
             }
             
             UIAlertController.alert("Товар добавлен в пакет".ls).show()
@@ -142,7 +143,7 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         cell.nameLabel?.text = productDetails.name
         cell.descriptionLabel?.text = productDetails.description_
-        cell.weightLabel?.text = productDetails.weight + " \(productDetails.units)"
+        cell.weightLabel?.text = productDetails.valuesValueForWeightAfterRework  + " \(productDetails.valuesUnitForWeightAfterRework)  "
         cell.priceOldLabel?.text = productDetails.price + " грн."
         
         //if price_sale != 0.00 грн, set it
@@ -184,6 +185,8 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         let detailsProductVC = Storyboard.DetailsProduct.instantiate()
         //detailsProductVC.weightDetailsVC = searchProduct[indexPath.row].weight + " " + searchProduct[indexPath.row].units
+        detailsProductVC.weightValueDetailsVC = searchProduct[indexPath.row].valuesValueForWeightAfterRework
+        detailsProductVC.weightUnitDetailsVC = searchProduct[indexPath.row].valuesUnitForWeightAfterRework
         detailsProductVC.categoryIdProductDetailsVC = searchProduct[indexPath.row].category_id
         detailsProductVC.priceSaleDetailsVC = searchProduct[indexPath.row].price_sale
         detailsProductVC.idProductDetailsVC = searchProduct[indexPath.row].id

@@ -10,6 +10,8 @@ import Foundation
 import RealmSwift
 
 struct Products {
+    var valuesUnitForWeightAfterRework = ""
+    var valuesValueForWeightAfterRework = ""
     var id = ""
     var description = ""
     var proteins = ""

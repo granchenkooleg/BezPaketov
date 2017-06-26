@@ -140,7 +140,7 @@ class BasketViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         // Check price value
         guard (Double(totalPriceInCart()))! >= (Double(300))  else {
-            let alertController = UIAlertController(title: "Доставка на сумму до 300грн. платная", message: "Стоимость доставки 30-50грн.", preferredStyle: .actionSheet)
+            let alertController = UIAlertController(title: "Доставка на сумму до 300 грн. платная", message: "Стоимость доставки 30-50грн.", preferredStyle: .actionSheet)
             
             let buyMore = UIAlertAction(title: "Купить ещё", style: .default) { action -> Void in
                 //Do some stuff

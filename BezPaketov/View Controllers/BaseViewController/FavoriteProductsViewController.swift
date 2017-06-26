@@ -69,6 +69,8 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
             UserRequest.favorite(param as [String : AnyObject], completion: {[weak self] json in
                 json.forEach { _, json in
                     guard (json.isEmpty) == false else {return}
+                    let valuesUnitForWeightAfterRework = String(describing: json["values"][0]["unit"])
+                    let valuesValueForWeightAfterRework = String(describing: json["values"][0]["value"])
                     let id = json["id"].string ?? ""
                     let created_at = json["created_at"].string ?? ""
                     let icon = json["icon"].string ?? ""
@@ -97,7 +99,7 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
                     let image = Data()
                     if icon.isEmpty == false {
                         
-                        let list = Products(id: id, description: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
+                        let list = Products(valuesUnitForWeightAfterRework: valuesUnitForWeightAfterRework, valuesValueForWeightAfterRework: valuesValueForWeightAfterRework, id: id, description: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
                         self?.internalProductsForListOfWeightVC.append(list)
                     }
                 }
@@ -161,11 +163,12 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
             if let product = realm.objects(ProductsForRealm.self).filter("id  == [c] %@", productDetails.id ).first {
                 try! realm.write {
                     product.quantity = "\((Int((product.quantity)) ?? 0) + 1)"
+                    product.weightAdd = "\((Int(product.weightAdd!) ?? 0) + Int(productDetails.valuesValueForWeightAfterRework)!)"
                 }
             } else {
                 let image: Data? = nil
                 
-                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: "", status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: "", quantity: "1", image: image)
+                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: productDetails.valuesValueForWeightAfterRework, status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "1", image: image)
             }
             
             UIAlertController.alert("Товар добавлен в пакет".ls).show()
@@ -178,7 +181,7 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
         
         cell.nameLabel?.text = productDetails.name
         cell.descriptionLabel?.text = productDetails.description
-        cell.weightLabel?.text = productDetails.weight  + " \(_productsList[indexPath.row].units)"
+        cell.weightLabel?.text = productDetails.valuesValueForWeightAfterRework  + " \(_productsList[indexPath.row].valuesUnitForWeightAfterRework)  "
         cell.priceOldLabel?.text = productDetails.price + " грн."
         
         //if price_sale != 0.00 грн, set it
@@ -221,6 +224,8 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
     func detailsVC (indexPath: IndexPath) {
         let detailsProductVC = Storyboard.DetailsProduct.instantiate()
         //detailsProductVC.weightDetailsVC = _productsList[indexPath.row].weight + " \(_productsList[indexPath.row].units)"
+        detailsProductVC.weightValueDetailsVC = _productsList[indexPath.row].valuesValueForWeightAfterRework
+        detailsProductVC.weightUnitDetailsVC = _productsList[indexPath.row].valuesUnitForWeightAfterRework
         detailsProductVC.categoryIdProductDetailsVC = _productsList[indexPath.row].category_id
         detailsProductVC.priceSaleDetailsVC = _productsList[indexPath.row].price_sale
         detailsProductVC.idProductDetailsVC = _productsList[indexPath.row].id
@@ -228,7 +233,6 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
         detailsProductVC.descriptionDetailsVC = _productsList[indexPath.row].description
         detailsProductVC.uglevodyDetailsVC = _productsList[indexPath.row].uglevody
         detailsProductVC.zhiryDetailsVC = _productsList[indexPath.row].zhiry
-        
         detailsProductVC.proteinsDetailsVC = _productsList[indexPath.row].proteins
         detailsProductVC.caloriesDetailsVC = _productsList[indexPath.row].calories
         detailsProductVC.expire_dateDetailsVC = _productsList[indexPath.row].expire_date
