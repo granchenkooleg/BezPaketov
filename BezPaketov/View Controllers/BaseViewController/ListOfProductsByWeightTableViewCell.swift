@@ -31,7 +31,29 @@ class ListOfProductsByWeightTableViewCell: UITableViewCell {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var priceOldLabel: UILabel!
     @IBOutlet weak var priceSaleLabel: UILabel!
+    var productID: String = ""
+    var quantity: Int = 0
+    var completionBlock: Block?
+    var productDetail: ProductsForRealm? = nil
+    var xForWeight: Int = 0
     
+    @IBAction func addProduct(sender: AnyObject) {
+        quantity += 1
+        xForWeight = Int((productDetail?.weightAdd) ?? "") ?? 0
+        xForWeight += Int((productDetail?.weight) ?? "") ?? 0
+        //updateProduct()
+        completionBlock?()
+    }
+    
+    @IBAction func subProduct(sender: AnyObject) {
+        guard quantity > 1 || (Int((productDetail?.weightAdd) ?? "") ?? 0 > Int((productDetail?.weight) ?? "") ?? 0) else { return }
+        quantity -= 1
+        xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
+        xForWeight -= (Int((productDetail?.weight)!)!)
+        //updateProduct()
+        completionBlock?()
+    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

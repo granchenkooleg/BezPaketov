@@ -693,7 +693,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuraGranchenko.BezPaketov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9122513f-efde-4c64-a3f4-af8a748ec822";
+				PROVISIONING_PROFILE = "2ef62921-79c5-4d25-99c5-dca1566dbd20";
 				PROVISIONING_PROFILE_SPECIFIER = BezPaketov_App_Store_Profile;
 				SWIFT_OBJC_BRIDGING_HEADER = "BezPaketov/BezPaketov-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -714,7 +714,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuraGranchenko.BezPaketov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9122513f-efde-4c64-a3f4-af8a748ec822";
+				PROVISIONING_PROFILE = "2ef62921-79c5-4d25-99c5-dca1566dbd20";
 				PROVISIONING_PROFILE_SPECIFIER = BezPaketov_App_Store_Profile;
 				SWIFT_OBJC_BRIDGING_HEADER = "BezPaketov/BezPaketov-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

@@ -138,7 +138,6 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         })
     }
     
-    
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -151,6 +150,9 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         
         
         let productDetails = self.productsList[indexPath.row]
+        cell.completionBlock = {
+            
+        }
         
         cell.buttonAction = { [weak self]  (sender) in
             // Do whatever you want from your button here.

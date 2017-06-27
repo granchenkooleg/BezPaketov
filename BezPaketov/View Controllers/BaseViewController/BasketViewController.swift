@@ -210,14 +210,14 @@ class BasketTableViewCell: UITableViewCell {
     
     @IBAction func addProduct(sender: AnyObject) {
         quantity += 1
-        xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
-        xForWeight += (Int((productDetail?.weight)!)!)
+        xForWeight = Int((productDetail?.weightAdd) ?? "") ?? 0
+        xForWeight += Int((productDetail?.weight) ?? "") ?? 0
         updateProduct()
         completionBlock?()
     }
     
     @IBAction func subProduct(sender: AnyObject) {
-        guard quantity > 1 else { return }
+        guard quantity > 1 || (Int((productDetail?.weightAdd) ?? "") ?? 0 > Int((productDetail?.weight) ?? "") ?? 0) else { return }
         quantity -= 1
         xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
         xForWeight -= (Int((productDetail?.weight)!)!)
