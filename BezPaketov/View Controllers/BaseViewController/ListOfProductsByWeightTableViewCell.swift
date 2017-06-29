@@ -12,7 +12,10 @@ import UIKit
 class ListOfProductsByWeightTableViewCell: UITableViewCell {
     
     @IBOutlet var buttonCart: UIButton!
-    
+    ///////!!!!
+    @IBOutlet weak var addProductButton: UIButton!
+    var buttomAddAction: ((_ sender: AnyObject) -> Void)?
+    ///////!!!!
     var buttonAction: ((_ sender: AnyObject) -> Void)?
     
     @IBAction func buttonPressedCart(_ sender: Any) {
@@ -31,27 +34,26 @@ class ListOfProductsByWeightTableViewCell: UITableViewCell {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var priceOldLabel: UILabel!
     @IBOutlet weak var priceSaleLabel: UILabel!
-    var productID: String = ""
+    @IBOutlet weak var quantityLabel: UILabel!
     var quantity: Int = 0
     var completionBlock: Block?
-    var productDetail: ProductsForRealm? = nil
+    var productDetail: Product? = nil
+    var valueWeightForButton: Int = 0
     var xForWeight: Int = 0
     
     @IBAction func addProduct(sender: AnyObject) {
-        quantity += 1
-        xForWeight = Int((productDetail?.weightAdd) ?? "") ?? 0
-        xForWeight += Int((productDetail?.weight) ?? "") ?? 0
-        //updateProduct()
-        completionBlock?()
+        self.buttomAddAction?(sender as AnyObject)
+//        quantity += 9
+//        xForWeight += valueWeightForButton
+//        //updateProduct()
     }
     
     @IBAction func subProduct(sender: AnyObject) {
-        guard quantity > 1 || (Int((productDetail?.weightAdd) ?? "") ?? 0 > Int((productDetail?.weight) ?? "") ?? 0) else { return }
-        quantity -= 1
-        xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
-        xForWeight -= (Int((productDetail?.weight)!)!)
+//        guard quantity > 1 || (Int((productDetail?.weightAdd) )  > Int((productDetail?.weight))) else { return }
+//        quantity -= 1
+//        xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
+//        xForWeight -= (Int((productDetail?.weight) ?? "") ?? 0)
         //updateProduct()
-        completionBlock?()
     }
 
     

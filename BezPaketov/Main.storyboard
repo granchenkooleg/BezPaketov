@@ -2025,7 +2025,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="80" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Дом" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="urL-uT-ZXn">
-                                        <rect key="frame" x="20" y="267" width="65" height="35"/>
+                                        <rect key="frame" x="20" y="267" width="64.5" height="35"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.90269396550000003" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="iaC-AZ-d2B"/>
@@ -2038,7 +2038,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="80" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Этаж" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pZt-0f-dA3">
-                                        <rect key="frame" x="164" y="267" width="64" height="35"/>
+                                        <rect key="frame" x="163.5" y="267" width="64.5" height="35"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.90269396550000003" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="aqb-mN-50S"/>
@@ -2064,7 +2064,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="80" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Подъезд" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uyx-Ls-VLm">
-                                        <rect key="frame" x="93" y="267" width="64" height="35"/>
+                                        <rect key="frame" x="92.5" y="267" width="64" height="35"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.90269396550000003" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="bBG-YY-Tl6"/>
@@ -3267,6 +3267,9 @@
                                                                             <size key="value" width="30" height="30"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="addProductWithSender:" destination="hdD-8K-rhY" eventType="touchUpInside" id="Zqq-rR-AgY"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Od-nu-qji" customClass="Button" customModule="BezPaketov" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="7" width="20" height="20"/>
@@ -3282,6 +3285,9 @@
                                                                             <size key="value" width="30" height="30"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="subProductWithSender:" destination="hdD-8K-rhY" eventType="touchUpInside" id="5Ri-Wb-1n5"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.90269396550000003" colorSpace="calibratedRGB"/>
@@ -3343,6 +3349,7 @@
                                             <outlet property="nameLabel" destination="3TF-sa-dPs" id="Wxx-gN-8W7"/>
                                             <outlet property="priceOldLabel" destination="gmD-Db-GuF" id="1vZ-Qf-szi"/>
                                             <outlet property="priceSaleLabel" destination="2Iy-nl-rUZ" id="0Xo-R4-dpL"/>
+                                            <outlet property="quantityLabel" destination="neS-gn-tf0" id="oe0-xh-M2k"/>
                                             <outlet property="thubnailImageView" destination="iZs-gK-0N4" id="QJK-3k-2sJ"/>
                                             <outlet property="weightLabel" destination="BNz-Je-PQf" id="fDS-Cz-SRT"/>
                                         </connections>

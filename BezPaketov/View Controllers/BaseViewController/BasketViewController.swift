@@ -57,12 +57,13 @@ class BasketViewController: BaseViewController, UITableViewDataSource, UITableVi
         }
         
         if productDetails.units == "шт" {
-            cell.quantityLabel?.text = productDetails.quantity + " шт"
+            cell.quantityLabel?.text = productDetails.quantity  + " шт"
         } else {
             if (Int(productDetails.weightAdd ?? "") ?? 0) >= 1000 && (productDetails.units ?? "") == "гр" {
                 cell.quantityLabel?.text = "\((Double(productDetails.weightAdd ?? "") ?? 0.0)  / 1000)" + " кг"
             } else {
-                cell.quantityLabel?.text = productDetails.weightAdd! + " \(productDetails.units!)"
+                guard let quantity = productDetails.weightAdd else { return cell }
+                cell.quantityLabel?.text = quantity + " \(productDetails.units!)"
             }
         }
         
