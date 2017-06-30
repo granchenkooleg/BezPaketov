@@ -27,8 +27,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
     var list: Any?
     var productsList = [Product]()
     
-    var quantityForRealm = 0
-    var quantityWeighInitial: Int? = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,9 +150,13 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         
         let productDetails = self.productsList[indexPath.row]
         
+        // For + and - so that they correspond to the values self
+        var quantityForRealm = 0
+        var quantityWeighInitial: Int? = 0
+        
         // Here i think will be шт and value will be always
         if productDetails.valuesValueForWeightAfterRework.isEmpty != true {
-            self.quantityForRealm = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+            quantityForRealm = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
             quantityWeighInitial = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
         }
         
@@ -169,24 +172,37 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         cell.buttomAddAction = { [weak self] (sender) in
             if productDetails.valuesUnitForWeightAfterRework != "шт"
             {
-                self?.quantityForRealm += (self?.quantityWeighInitial) ?? 0
-                cell.quantityLabel.text = "\(self?.quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)"
-                
+                quantityForRealm += quantityWeighInitial ?? 0
+                // For short entry
+                if quantityForRealm >= 1000 && productDetails.valuesUnitForWeightAfterRework == "гр" {
+                    cell.quantityLabel?.text = "\(Double(quantityForRealm) / 1000)" + " кг"
+                } else {
+                    cell.quantityLabel?.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)"
+                }
             } else {
-                
-                self?.quantityForRealm += 1
-                cell.quantityLabel.text = "\(self?.quantityForRealm ?? 0)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
+                quantityForRealm += Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+                cell.quantityLabel.text = "\(quantityForRealm )" + " \(productDetails.valuesUnitForWeightAfterRework)  "
             }
             
         }
         
         cell.buttonSubAction = { [weak self] (sender) in
-            self?.quantityForRealm -= 1
-            cell.quantityLabel.text = "\(self?.quantityForRealm ?? 0)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
+            if productDetails.valuesUnitForWeightAfterRework != "шт" {
+                guard quantityForRealm > (quantityWeighInitial ?? 0) else { return }
+                quantityForRealm -= quantityWeighInitial ?? 0
+                // For short entry
+                if quantityForRealm >= 1000 {
+                    cell.quantityLabel?.text = "\(Double(quantityForRealm) / 1000)" + " кг"
+                } else {
+                    cell.quantityLabel?.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)"
+                }
+            } else {
+                guard quantityForRealm > 1 else { return }
+                quantityForRealm -= Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+                cell.quantityLabel.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
+            }
             
         }
-        
-        let xForWeightFromCell = cell.xForWeight != 0 ? String(describing: cell.xForWeight) : productDetails.valuesValueForWeightAfterRework
         
         // Action for cart
         cell.buttonAction = { [weak self]  (sender) in
@@ -194,20 +210,33 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
             let realm = try! Realm()
             if let product = realm.objects(ProductsForRealm.self).filter("id  == [c] %@", productDetails.id ).first {
                 try! realm.write {
-                    product.quantity = "\((Int(product.quantity) ?? 0) + (self?.quantityForRealm ?? 0))"
-                    //product.weightAdd = "\((Int(product.weightAdd!) ?? 0) + (Int(xForWeightFromCell) ?? 0))"
+                    product.weightAdd = "\((Int(product.weightAdd!) ?? 0) + quantityForRealm)"
+                    
+                    guard productDetails.valuesUnitForWeightAfterRework == "шт" else {return }
+                    product.quantity = "\((Int(product.quantity) ?? 0) + quantityForRealm)"
                 }
             } else {
                 let image: Data? = nil
                 
-                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: xForWeightFromCell , status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "\(self?.quantityForRealm ?? 0)", image: image)
+                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: "\(quantityForRealm)", status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "\(quantityForRealm)", image: image)
             }
             
             Dispatch.mainQueue.async ({
                 self?.updateProductInfo()
             })
             
-            UIAlertController.alert("Товар добавлен в пакет".ls).show()
+            //UIAlertController.alert("Товар добавлен в пакет".ls).show()
+            let alert = UIAlertController(title: "Товар добавлен в пакет", message: "", preferredStyle: .alert)
+            let OkAction = UIAlertAction(title: "Ok", style: .default) {action in
+                
+                // Reset
+                quantityForRealm = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+                cell.quantityLabel.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
+                
+            }
+            alert.addAction(OkAction)
+            alert.show()
+            
             self?.basketHandler?()
         }
         
@@ -221,7 +250,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         cell.priceOldLabel?.text = productDetails.price + " грн."
         
         if productDetails.valuesUnitForWeightAfterRework != "гр" {
-            cell.quantityLabel?.text = "\(quantityForRealm)" + " шт"
+            cell.quantityLabel?.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)   "
         } else {
             if quantityForRealm >= 1000 && productDetails.valuesUnitForWeightAfterRework == "гр" {
                 cell.quantityLabel?.text = "\(Double(quantityForRealm) / 1000)" + " кг"
