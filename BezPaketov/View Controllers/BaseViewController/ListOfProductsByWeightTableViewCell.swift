@@ -12,10 +12,7 @@ import UIKit
 class ListOfProductsByWeightTableViewCell: UITableViewCell {
     
     @IBOutlet var buttonCart: UIButton!
-    ///////!!!!
-    @IBOutlet weak var addProductButton: UIButton!
-    var buttomAddAction: ((_ sender: AnyObject) -> Void)?
-    ///////!!!!
+    
     var buttonAction: ((_ sender: AnyObject) -> Void)?
     
     @IBAction func buttonPressedCart(_ sender: Any) {
@@ -26,6 +23,15 @@ class ListOfProductsByWeightTableViewCell: UITableViewCell {
     @IBAction func buttonPressedCartForListVCOfWeight(_ sender: Any) {
         self.buttonAction?(sender as AnyObject)
     }
+    
+    // For +
+    @IBOutlet weak var addProductButton: UIButton!
+    var buttomAddAction: ((_ sender: AnyObject) -> Void)?
+    
+    // For -
+    @IBOutlet weak var subProductButton: UIButton!
+    var buttonSubAction: ((_ sender: AnyObject) -> Void)?
+  
     
     
     @IBOutlet weak var thubnailImageView: UIImageView!
@@ -49,6 +55,7 @@ class ListOfProductsByWeightTableViewCell: UITableViewCell {
     }
     
     @IBAction func subProduct(sender: AnyObject) {
+        self.buttonSubAction?(sender as AnyObject)
 //        guard quantity > 1 || (Int((productDetail?.weightAdd) )  > Int((productDetail?.weight))) else { return }
 //        quantity -= 1
 //        xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)

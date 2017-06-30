@@ -26,9 +26,9 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
     
     var list: Any?
     var productsList = [Product]()
-
-    var quantity: Int = 0
+    
     var quantityForRealm = 0
+    var quantityWeighInitial: Int? = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,27 +151,39 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         
         let productDetails = self.productsList[indexPath.row]
         
-        self.quantity = 0
-        
         // Here i think will be шт and value will be always
-        if productDetails.valuesUnitForWeightAfterRework != "гр" {
-             quantityForRealm = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+        if productDetails.valuesValueForWeightAfterRework.isEmpty != true {
+            self.quantityForRealm = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+            quantityWeighInitial = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
         }
+        
+        
         
         // For add and sub button
-        cell.completionBlock = {[weak self] in
-            self?.updateProductInfo()
-            self?.tableView.reloadData()
-        }
+        //        cell.completionBlock = {[weak self] in
+        //            self?.updateProductInfo()
+        //            self?.tableView.reloadData()
+        //        }
         
         // Button action
         cell.buttomAddAction = { [weak self] (sender) in
-          self?.quantity += 1
-            
-            if self?.quantityForRealm != 0 {
+            if productDetails.valuesUnitForWeightAfterRework != "шт"
+            {
+                self?.quantityForRealm += (self?.quantityWeighInitial) ?? 0
+                cell.quantityLabel.text = "\(self?.quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)"
+                
+            } else {
+                
                 self?.quantityForRealm += 1
                 cell.quantityLabel.text = "\(self?.quantityForRealm ?? 0)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
             }
+            
+        }
+        
+        cell.buttonSubAction = { [weak self] (sender) in
+            self?.quantityForRealm -= 1
+            cell.quantityLabel.text = "\(self?.quantityForRealm ?? 0)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
+            
         }
         
         let xForWeightFromCell = cell.xForWeight != 0 ? String(describing: cell.xForWeight) : productDetails.valuesValueForWeightAfterRework
@@ -211,10 +223,10 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         if productDetails.valuesUnitForWeightAfterRework != "гр" {
             cell.quantityLabel?.text = "\(quantityForRealm)" + " шт"
         } else {
-            if Int(xForWeightFromCell) ?? 0 >= 1000 && productDetails.valuesUnitForWeightAfterRework == "гр" {
-                cell.quantityLabel?.text = "\(Double(xForWeightFromCell) ?? 0.0 / 1000)" + " кг"
+            if quantityForRealm >= 1000 && productDetails.valuesUnitForWeightAfterRework == "гр" {
+                cell.quantityLabel?.text = "\(Double(quantityForRealm) / 1000)" + " кг"
             } else {
-                cell.quantityLabel?.text = "\(xForWeightFromCell)" + " \(productDetails.valuesUnitForWeightAfterRework)"
+                cell.quantityLabel?.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)"
             }
         }
         

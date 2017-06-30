@@ -52,7 +52,7 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
     var quantity: Int = 1
     var quantityInitial: Int = 0
     var weightValueInt: Int = 0
-    var weightValueDouble: Double = 0.0
+    var weightValueDouble: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
