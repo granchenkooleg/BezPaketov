@@ -136,15 +136,28 @@ class PaymentViewController: BasketViewController, MFMailComposeViewControllerDe
         
         for i in productsInBasket {
             var count = 0
-            // Convert type String to Int
-            let q: Int = Int(i.quantity)!
+            var q = 0
+            
+            // q must be dozens for server
+            if i.units != "шт" {
+                q = Int(i.weightAdd ?? "") ?? 0
+                q /= Int(i.weight ?? "") ?? 0
+            } else {
+                q = Int(i.quantity) ?? 0
+            }
+            
             for _ in 1...q {
                 list.append(JSON(i.id))
                 
                 // For listSpeciallyForMail
                 count += 1
             }
-            listSpeciallyForMail.append(i.id + " x \(count)")
+            
+            if i.units != "шт" {
+                listSpeciallyForMail.append(i.id + " x \(count * Int(i.weight ?? "")!) \(i.units!)")
+            } else {
+                listSpeciallyForMail.append(i.id + " x \(count) шт")
+            }
         }
         
         // Add yet to body listSpeciallyForMail

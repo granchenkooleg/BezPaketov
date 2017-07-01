@@ -17,8 +17,6 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
     var products = [Product]()
     var searchProduct = [Product]()
     
-    var quantity: Int = 1
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -119,21 +117,77 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         let productDetails = searchProduct[indexPath.row]
         
+        // For + and - so that they here correspond self values and don't will overwritten values of another cell
+        var quantityForRealm = 0
+        var quantityWeighInitial: Int? = 0
+        
+        // Here i think will be шт and value will be always
+        if productDetails.valuesValueForWeightAfterRework.isEmpty != true {
+            quantityForRealm = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+            quantityWeighInitial = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+        }
+        
+        // Button action
+        cell.buttomAddAction = { [weak self] (sender) in
+            if productDetails.valuesUnitForWeightAfterRework != "шт"
+            {
+                quantityForRealm += quantityWeighInitial ?? 0
+                // For short entry
+                if quantityForRealm >= 1000 && productDetails.valuesUnitForWeightAfterRework == "гр" {
+                    cell.quantityLabel?.text = "\(Double(quantityForRealm) / 1000)" + " кг"
+                } else {
+                    cell.quantityLabel?.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)"
+                }
+            } else {
+                quantityForRealm += Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+                cell.quantityLabel.text = "\(quantityForRealm )" + " \(productDetails.valuesUnitForWeightAfterRework)  "
+            }
+            
+        }
+        
+        cell.buttonSubAction = { [weak self] (sender) in
+            if productDetails.valuesUnitForWeightAfterRework != "шт" {
+                guard quantityForRealm > (quantityWeighInitial ?? 0) else { return }
+                quantityForRealm -= quantityWeighInitial ?? 0
+                // For short entry
+                if quantityForRealm >= 1000 {
+                    cell.quantityLabel?.text = "\(Double(quantityForRealm) / 1000)" + " кг"
+                } else {
+                    cell.quantityLabel?.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)"
+                }
+            } else {
+                guard quantityForRealm > 1 else { return }
+                quantityForRealm -= Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+                cell.quantityLabel.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
+            }
+            
+        }
+        
         cell.buttonAction = { (sender) in
             // Do whatever you want from your button here.
             let realm = try! Realm()
             if let product = realm.objects(ProductsForRealm.self).filter("id  == [c] %@", productDetails.id ).first {
                 try! realm.write {
-                    product.quantity = "\((Int((product.quantity)) ?? 0) + 1)"
-                    product.weightAdd = "\((Int(product.weightAdd!) ?? 0) + Int(productDetails.valuesValueForWeightAfterRework)!)"
+                    product.weightAdd = "\((Int(product.weightAdd!) ?? 0) + quantityForRealm)"
+                    
+                    guard productDetails.valuesUnitForWeightAfterRework == "шт" else {return }
+                    product.quantity = "\((Int(product.quantity) ?? 0) + quantityForRealm)"
                 }
             } else {
                 let image: Data? = nil
                 
-                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: productDetails.valuesValueForWeightAfterRework, status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "\(self.quantity)", image: image)
+                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: "\(quantityForRealm)", status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "\(quantityForRealm)", image: image)
             }
             
-            UIAlertController.alert("Товар добавлен в пакет".ls).show()
+            let alert = UIAlertController(title: "Товар добавлен в пакет", message: "", preferredStyle: .alert)
+            let OkAction = UIAlertAction(title: "Ok", style: .default) {action in
+                // Reset
+                quantityForRealm = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
+                cell.quantityLabel.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
+            }
+            alert.addAction(OkAction)
+            alert.show()
+            
             self.updateProductInfo()
         }
         
@@ -145,6 +199,17 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         cell.descriptionLabel?.text = productDetails.description_
         cell.weightLabel?.text = productDetails.valuesValueForWeightAfterRework  + " \(productDetails.valuesUnitForWeightAfterRework)  "
         cell.priceOldLabel?.text = productDetails.price + " грн."
+        
+        // For display values in label
+        if productDetails.valuesUnitForWeightAfterRework != "гр" {
+            cell.quantityLabel?.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)   "
+        } else {
+            if quantityForRealm >= 1000 && productDetails.valuesUnitForWeightAfterRework == "гр" {
+                cell.quantityLabel?.text = "\(Double(quantityForRealm) / 1000)" + " кг"
+            } else {
+                cell.quantityLabel?.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)"
+            }
+        }
         
         //if price_sale != 0.00 грн, set it
         if productDetails.price_sale != "0.00" {
@@ -209,12 +274,19 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
 class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet var buttonCart: UIButton!
-    
     var buttonAction: ((_ sender: AnyObject) -> Void)?
-    
     @IBAction func buttonPressedCart(_ sender: Any) {
         self.buttonAction?(sender as AnyObject)
     }
+    
+    // For +
+    @IBOutlet weak var addProductButton: UIButton!
+    var buttomAddAction: ((_ sender: AnyObject) -> Void)?
+    
+    // For -
+    @IBOutlet weak var subProductButton: UIButton!
+    var buttonSubAction: ((_ sender: AnyObject) -> Void)?
+
     
     @IBOutlet weak var thubnailImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -222,12 +294,21 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var priceSaleLabel: UILabel!
     @IBOutlet weak var priceOldLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    
+    @IBAction func addProduct(sender: AnyObject) {
+        self.buttomAddAction?(sender as AnyObject)
+    }
+    
+    @IBAction func subProduct(sender: AnyObject) {
+        self.buttonSubAction?(sender as AnyObject)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        thubnailImageView?.layer.cornerRadius = 30
-        thubnailImageView?.layer.masksToBounds = true
+//        thubnailImageView?.layer.cornerRadius = 30
+//        thubnailImageView?.layer.masksToBounds = true
     }
     
     
