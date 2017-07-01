@@ -41,26 +41,14 @@ class ListOfProductsByWeightTableViewCell: UITableViewCell {
     @IBOutlet weak var priceOldLabel: UILabel!
     @IBOutlet weak var priceSaleLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
-    var quantity: Int = 0
-    var completionBlock: Block?
-    var productDetail: Product? = nil
-    var valueWeightForButton: Int = 0
-    var xForWeight: Int = 0
+
     
     @IBAction func addProduct(sender: AnyObject) {
         self.buttomAddAction?(sender as AnyObject)
-//        quantity += 9
-//        xForWeight += valueWeightForButton
-//        //updateProduct()
     }
     
     @IBAction func subProduct(sender: AnyObject) {
         self.buttonSubAction?(sender as AnyObject)
-//        guard quantity > 1 || (Int((productDetail?.weightAdd) )  > Int((productDetail?.weight))) else { return }
-//        quantity -= 1
-//        xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
-//        xForWeight -= (Int((productDetail?.weight) ?? "") ?? 0)
-        //updateProduct()
     }
 
     

@@ -20,6 +20,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
     // Segue
     var nameListsOfProductsHeaderText: String?
     var unitOfWeightForListOfProductsByWeightVC: String?
+    
     // Property for comparison with allListProducts and suitable data retrieval
     var weightOfWeightVC: String?
     var idPodcategory: String?
@@ -150,7 +151,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         
         let productDetails = self.productsList[indexPath.row]
         
-        // For + and - so that they correspond to the values self
+        // For + and - so that they here correspond self values and don't will overwritten values of another cell
         var quantityForRealm = 0
         var quantityWeighInitial: Int? = 0
         
@@ -159,14 +160,6 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
             quantityForRealm = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
             quantityWeighInitial = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
         }
-        
-        
-        
-        // For add and sub button
-        //        cell.completionBlock = {[weak self] in
-        //            self?.updateProductInfo()
-        //            self?.tableView.reloadData()
-        //        }
         
         // Button action
         cell.buttomAddAction = { [weak self] (sender) in
@@ -225,14 +218,11 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
                 self?.updateProductInfo()
             })
             
-            //UIAlertController.alert("Товар добавлен в пакет".ls).show()
             let alert = UIAlertController(title: "Товар добавлен в пакет", message: "", preferredStyle: .alert)
             let OkAction = UIAlertAction(title: "Ok", style: .default) {action in
-                
                 // Reset
                 quantityForRealm = Int(productDetails.valuesValueForWeightAfterRework) ?? 0
                 cell.quantityLabel.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
-                
             }
             alert.addAction(OkAction)
             alert.show()
@@ -240,15 +230,17 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
             self?.basketHandler?()
         }
         
+        
         Dispatch.mainQueue.async { _ in
             cell.thubnailImageView?.sd_setImage(with: URL(string: (productDetails.icon)))
         }
         
         cell.nameLabel?.text = productDetails.name
         cell.descriptionLabel?.text = productDetails.description_
-        cell.weightLabel?.text = "\(productDetails.valuesValueForWeightAfterRework)" + " \(productDetails.valuesUnitForWeightAfterRework)   "
+        cell.weightLabel?.text = "\(productDetails.valuesValueForWeightAfterRework)" + " \(productDetails.valuesUnitForWeightAfterRework)  "
         cell.priceOldLabel?.text = productDetails.price + " грн."
         
+        // For display values in label
         if productDetails.valuesUnitForWeightAfterRework != "гр" {
             cell.quantityLabel?.text = "\(quantityForRealm)" + " \(productDetails.valuesUnitForWeightAfterRework)   "
         } else {
