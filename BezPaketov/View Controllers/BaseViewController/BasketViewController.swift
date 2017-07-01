@@ -201,7 +201,7 @@ class BasketTableViewCell: UITableViewCell {
     var productDetail: ProductsForRealm? = nil
     var xForWeight: Int = 0
     
-   
+    
     
     
     
@@ -210,18 +210,27 @@ class BasketTableViewCell: UITableViewCell {
     }
     
     @IBAction func addProduct(sender: AnyObject) {
+        if productDetail?.units == "шт" {
         quantity += 1
+        } else {
+        quantity += Int((productDetail?.weight) ?? "") ?? 0
         xForWeight = Int((productDetail?.weightAdd) ?? "") ?? 0
         xForWeight += Int((productDetail?.weight) ?? "") ?? 0
+        }
         updateProduct()
         completionBlock?()
     }
     
     @IBAction func subProduct(sender: AnyObject) {
-        guard quantity > 1 || (Int(productDetail?.weightAdd ?? "") ?? 0 > Int(productDetail?.weight ?? "") ?? 0) else { return }
-        quantity -= 1
-        xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
-        xForWeight -= (Int((productDetail?.weight)!)!)
+        if productDetail?.units == "шт" {
+            guard quantity > 1 else { return }
+            quantity -= 1
+        } else {
+            guard Int(productDetail?.weightAdd ?? "") ?? 0 > Int(productDetail?.weight ?? "") ?? 0 else { return }
+            quantity -= Int((productDetail?.weight) ?? "") ?? 0
+            xForWeight = (Int((productDetail?.weightAdd) ?? "") ?? 0)
+            xForWeight -= (Int((productDetail?.weight)!)!)
+        }
         updateProduct()
         completionBlock?()
     }
