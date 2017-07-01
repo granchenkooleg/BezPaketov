@@ -3518,6 +3518,9 @@
                                                                             <size key="value" width="30" height="30"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="addProductWithSender:" destination="7W4-hk-4b3" eventType="touchUpInside" id="rPI-Sh-t3J"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nW7-Um-1x0" customClass="Button" customModule="BezPaketov" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="7" width="20" height="20"/>
@@ -3533,6 +3536,9 @@
                                                                             <size key="value" width="30" height="30"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="subProductWithSender:" destination="7W4-hk-4b3" eventType="touchUpInside" id="Msm-Og-0tH"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.90269396550000003" colorSpace="calibratedRGB"/>
@@ -3589,6 +3595,7 @@
                                             <outlet property="nameLabel" destination="uus-fl-EuG" id="N5Y-PS-spo"/>
                                             <outlet property="priceOldLabel" destination="1VS-tx-tGw" id="Tk9-uS-iK0"/>
                                             <outlet property="priceSaleLabel" destination="0T2-nF-3wl" id="WA4-qd-oQO"/>
+                                            <outlet property="quantityLabel" destination="UDv-gm-Sec" id="eK4-Au-DMF"/>
                                             <outlet property="thubnailImageView" destination="cHZ-WM-CuC" id="Dkb-zD-plF"/>
                                             <outlet property="weightLabel" destination="Z6h-DC-EjF" id="Ojf-Fb-t1y"/>
                                         </connections>
