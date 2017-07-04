@@ -15,7 +15,9 @@ class BasketViewController: BaseViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         updateProductInfo()
+        
     }
+    
     
     // MARK: - Table view data source
     
@@ -47,13 +49,13 @@ class BasketViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         cell.nameLabel?.text = productDetails.name
         
-        cell.weightLabel?.text = "\(productDetails.weight ?? "")" + " \(productDetails.units ?? "")  "
+        cell.weightLabel?.text = "\(productDetails.weight ?? "")" + " \(productDetails.units ?? "")."
         
         // Make a choice prices for to display prices
         if Double(productDetails.price_sale ?? "") ?? 0 > Double(0.00) {
-            cell.priceLabel?.text = (productDetails.price_sale ?? "") + " грн"
+            cell.priceLabel?.text = (productDetails.price_sale ?? "") + " грн. /"
         } else {
-            cell.priceLabel?.text = (productDetails.price ?? "") + " грн"
+            cell.priceLabel?.text = (productDetails.price ?? "") + " грн. /"
         }
         
         if productDetails.units == "шт" {
@@ -253,5 +255,13 @@ class BasketTableViewCell: UITableViewCell {
             realm?.delete(productDetail)
             completionBlock?()
         }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+//                weightLabel.cornerRadius = 9.0
+//                weightLabel.borderWidth = 1
+                //weightLabel.borderColor = Color.Bezpaketov
     }
 }

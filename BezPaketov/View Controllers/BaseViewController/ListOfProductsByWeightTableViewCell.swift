@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ListOfProductsByWeightTableViewCell: UITableViewCell {
     
     @IBOutlet var buttonCart: UIButton!
@@ -54,7 +53,10 @@ class ListOfProductsByWeightTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // Initialization code  
+//        weightLabel.cornerRadius = 9.0
+//        weightLabel.borderWidth = 1
+//        weightLabel.borderColor = Color.Bezpaketov
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

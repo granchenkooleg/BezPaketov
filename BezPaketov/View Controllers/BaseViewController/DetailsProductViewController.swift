@@ -31,7 +31,7 @@ class DetailsProductViewController: BaseViewController, UITableViewDelegate {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
-    // For favoriteProductOfUser
+    /* For favoriteProductOfUser */
     var weightValueDetailsVC: String?
     var weightUnitDetailsVC: String?
     var categoryIdProductDetailsVC: String?

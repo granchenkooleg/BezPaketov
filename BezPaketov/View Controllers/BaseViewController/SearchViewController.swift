@@ -197,8 +197,8 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         cell.nameLabel?.text = productDetails.name
         cell.descriptionLabel?.text = productDetails.description_
-        cell.weightLabel?.text = productDetails.valuesValueForWeightAfterRework  + " \(productDetails.valuesUnitForWeightAfterRework)  "
-        cell.priceOldLabel?.text = productDetails.price + " грн."
+        cell.weightLabel?.text = productDetails.valuesValueForWeightAfterRework  + " \(productDetails.valuesUnitForWeightAfterRework)."
+        cell.priceOldLabel?.text = productDetails.price + " грн. /"
         
         // For display values in label
         if productDetails.valuesUnitForWeightAfterRework != "гр" {
@@ -213,7 +213,7 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         //if price_sale != 0.00 грн, set it
         if productDetails.price_sale != "0.00" {
-            cell.priceSaleLabel?.text = productDetails.price_sale +  "  грн."
+            cell.priceSaleLabel?.text = "  " + productDetails.price_sale +  "  грн. /"
             // Create attributed string for strikethroughStyleAttributeName
             let myString = productDetails.price + " грн."
             let myAttribute = [ NSStrikethroughStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue ]
