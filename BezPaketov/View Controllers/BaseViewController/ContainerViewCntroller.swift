@@ -154,6 +154,7 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
     // MARK: Request for update DB
     var inactiveQueue: DispatchQueue!
     func requestForUpdateDB(_ completion: @escaping Block)  {
+        let startTime = CFAbsoluteTimeGetCurrent()
         
         Dispatch.backgroundQueue.async(){
             Product.delAllProducts()
@@ -164,11 +165,19 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
         inactiveQueue = anotherQueue
         
         anotherQueue.asyncAfter(deadline: DispatchTime.now() + .milliseconds(50)) {[weak self] in
+            
             let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
             UserRequest.listAllProducts(param as [String : AnyObject], completion: { [weak self] json in
                 guard let weakSelf = self else {return}
+                
+                // Counting quantity goods
+                var quantityGoods = 0
+                
                 json.forEach { _, json in
-                    print ("ContainVC🔵")
+                    
+                    quantityGoods += 1
+                    print ("ContainVC🔵 : " + "\(quantityGoods)")
+                    
                     let valuesUnitForWeightAfterRework = String(describing: json["values"][0]["unit"])
                     let valuesValueForWeightAfterRework = String(describing: json["values"][0]["value"])
                     let id = String(describing: json["id"])
@@ -204,12 +213,13 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
                     Product.setupProduct(valuesUnitForWeightAfterRework: valuesUnitForWeightAfterRework, valuesValueForWeightAfterRework: valuesValueForWeightAfterRework, id: id, description_: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
                 }
                 completion()
+                Logger.log(">>self - \(CFAbsoluteTimeGetCurrent() - startTime)<<", color: .Orange)
                 
-                let when = DispatchTime.now() + 1.5 // delay 1.5 to desired number of seconds
-                DispatchQueue.main.asyncAfter(deadline: when) {
+//                let when = DispatchTime.now() + 1.5 // delay 1.5 to desired number of seconds
+//                DispatchQueue.main.asyncAfter(deadline: when) {
                 self?.progressHUD.hide()
                 self?.backgroundImage.removeFromSuperview()
-                }
+//                }
             })
         }
     }

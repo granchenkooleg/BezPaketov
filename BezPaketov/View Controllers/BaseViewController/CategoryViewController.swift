@@ -136,7 +136,7 @@ class CategoryViewControllerSegment: BaseViewController,UITableViewDataSource, U
             return
         }
         
-        // Check if category is null follow to WeightVC
+        // Check if podcategory is null follow to WeightVC
         let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
         UserRequest.getAllProductsCategory(categoryID: categoryContainer[indexPath.row].id , entryParams: param as [String : AnyObject], completion: {[weak self] json in
             if  json.isEmpty {
@@ -164,12 +164,12 @@ class CategoryViewControllerSegment: BaseViewController,UITableViewDataSource, U
                 
             } else {
                 // Follow  to PodCategoryVC
-                self?.getWeigth(indexPath: indexPath)
+                self?.getPodCategory(indexPath: indexPath)
             }
         })
     }
     
-    func getWeigth(indexPath: IndexPath) {
+    func getPodCategory(indexPath: IndexPath) {
         let categoryViewController = Storyboard.Category.instantiate()
         categoryViewController.unitsForWeightVC = categoryContainer[indexPath.row].units
         categoryViewController.categoryId = categoryContainer[indexPath.row].id
@@ -179,10 +179,11 @@ class CategoryViewControllerSegment: BaseViewController,UITableViewDataSource, U
 }
 
 class CategoryViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
-    
+    // Redirected from another CategoryViewControllerSegment
     var unitsForWeightVC: String?
     var nameHeaderText: String?
     var categoryId: String?
+    
     @IBOutlet weak var headerLabel: UILabel?
     @IBOutlet weak var tableView: UITableView?
     //var spiner = UIActivityIndicatorView()
@@ -235,7 +236,7 @@ class CategoryViewController: BaseViewController, UITableViewDataSource, UITable
     
     
     // MARK: - Table view data source
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
