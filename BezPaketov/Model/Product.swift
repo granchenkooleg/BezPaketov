@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftyJSON
 
 struct Products {
     var valuesUnitForWeightAfterRework = ""
@@ -34,33 +35,60 @@ struct Products {
     var image = Data()
 }
 
+
+class Values : Object {
+    dynamic var value = ""
+    dynamic var unit = ""
+    
+}
+
 class Product : Object {
-    dynamic var valuesUnitForWeightAfterRework = ""
-    dynamic var valuesValueForWeightAfterRework = ""
-    dynamic var favoriteProductOfUser = false
-    dynamic var id = ""
-    dynamic var description_ = ""
-    dynamic var proteins = ""
-    dynamic var calories = ""
+    
     dynamic var zhiry = ""
-    dynamic var favorite = ""
-    dynamic var category_id = ""
-    dynamic var brand = ""
-    dynamic var price_sale = ""
     dynamic var weight = ""
     dynamic var status = ""
-    dynamic var expire_date = ""
-    dynamic var price = ""
-    dynamic var created_at = ""
+    dynamic var category_name: String? = nil
+    dynamic var favorite = ""
     dynamic var icon = ""
-    dynamic var category_name = ""
-    dynamic var name = ""
+    dynamic var brand = ""
+    dynamic var calories = ""
+    dynamic var proteins = ""
+    dynamic var count = ""
+    dynamic var min_count = ""
+    dynamic var name: String? = ""
+    dynamic var expire_date = ""
+    dynamic var id = ""
+    dynamic var price_sale = ""
+    dynamic var created_at = ""
+    dynamic var price = ""
+    dynamic var category_id: String? = ""
     dynamic var uglevody = ""
-    dynamic var units = ""
-    dynamic var image: Data? = nil
+    dynamic var unit_id: String?
+    dynamic var description_ = ""
+    var values = List<Values>()
+    
+        var valuesUnitForWeightAfterRework = ""
+        var valuesValueForWeightAfterRework = ""
+    
+//        dynamic var units = ""
+//        dynamic var favoriteProductOfUser = false
+    
     
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    @discardableResult class func setupProduct(json: JSON) -> Product {
+        var productList = Product()
+        let realm = try! Realm()
+        
+        try! realm.write {
+            for product in json.arrayValue {
+                productList = realm.create((Product.self), value: product.object, update: true)
+                productList.description_ = product["description"].stringValue
+            }
+        }
+        return productList
     }
     
     static func setConfig() {
@@ -68,62 +96,6 @@ class Product : Object {
         if let url = realm.configuration.fileURL {
             Logger.log("FileURL of DataBase - \(url)", color: .Orange)
         }
-    }
-    
-    @discardableResult class func setupProduct( valuesUnitForWeightAfterRework: String = "",
-                                                valuesValueForWeightAfterRework: String = "",
-                                                id: String = "",
-                                                description_: String = "",
-                                                proteins: String = "",
-                                                calories: String = "",
-                                                zhiry: String = "",
-                                                favorite: String = "",
-                                                category_id: String = "",
-                                                brand: String = "",
-                                                price_sale: String = "",
-                                                weight: String = "",
-                                                status: String = "",
-                                                expire_date: String = "",
-                                                price: String = "",
-                                                created_at: String = "",
-                                                icon: String = "",
-                                                category_name: String = "",
-                                                name: String = "",
-                                                uglevody: String = "",
-                                                units: String = "",
-                                                image: Data?  = nil) -> Product {
-        
-        let productData: Dictionary<String, Any> = [
-            "valuesUnitForWeightAfterRework" : valuesUnitForWeightAfterRework ,
-            "valuesValueForWeightAfterRework" : valuesValueForWeightAfterRework,
-            "id" :          id,
-            "description_" :   description_,
-            "proteins" :    proteins,
-            "calories" :       calories,
-            "zhiry" :       zhiry,
-            "favorite" : favorite,
-            "category_id": category_id,
-            "brand" :   brand,
-            "price_sale" :    price_sale,
-            "weight" :       weight,
-            "status" :       status,
-            "expire_date" : expire_date,
-            "price" :   price,
-            "created_at" :    created_at,
-            "icon" :       icon,
-            "category_name" :       category_name,
-            "name" : name,
-            "uglevody" :    uglevody,
-            "units" :       units,
-            "image" : image ?? Data()]
-        
-        let product = Product(value: productData)
-        
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(product, update: true)
-        }
-        return product
     }
     
     func allProducts() -> [Product] {
@@ -134,8 +106,10 @@ class Product : Object {
     static func delAllProducts() {
         let realm = try! Realm()
         let allProducts = realm.objects(Product.self)
+        let allValues = realm.objects(Values.self)
         try! realm.write {
             realm.delete(allProducts)
+            realm.delete(allValues)
         }
     }
 }

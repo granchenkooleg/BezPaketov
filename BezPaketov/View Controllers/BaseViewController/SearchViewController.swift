@@ -33,12 +33,12 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         products = Product().allProducts()
         guard products.count != 0 else {
-            searchRequest {[weak self] _ in
-                self?.products = Product().allProducts()
-                self?.searchProduct = self?.products ?? []
-                self?.tableView.reloadData()
-                self?.spiner.stopAnimating()
-            }
+//            searchRequest {[weak self] _ in
+//                self?.products = Product().allProducts()
+//                self?.searchProduct = self?.products ?? []
+//                self?.tableView.reloadData()
+//                self?.spiner.stopAnimating()
+//            }
             return
         }
         
@@ -56,50 +56,50 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
     }
     
     
-    func searchRequest(_ completion: @escaping Block)  {
-        let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
-        UserRequest.listAllProducts(param as [String : AnyObject], completion: { [weak self] json in
-            guard let weakSelf = self else {return}
-            json.forEach { _, json in
-                let id = json["id"].string ?? ""
-                let created_at = json["created_at"].string ?? ""
-                let icon = json["icon"].string ?? ""
-                let name = json["name"].string ?? ""
-                let category_id = json["category_id"].string ?? ""
-                let weight = json["weight"].string ?? ""
-                let description = json["description"].string ?? ""
-                let brand = json["brand"].string ?? ""
-                let calories = json["calories"].string ?? ""
-                let proteins = json["proteins"].string ?? ""
-                let zhiry = json["zhiry"].string ?? ""
-                let uglevody = json["uglevody"].string ?? ""
-                let price = json["price"].string ?? ""
-                let favorite = json["favorite"].string ?? ""
-                let status = json["status"].string ?? ""
-                let expire_date = json["expire_date"].string ?? ""
-                var units = json["units"].string ?? ""
-                if units == "kg" {
-                    units = "кг."
-                }
-                if units == "liter" {
-                    units = "л."
-                }
-                let category_name = json["category_name"].string ?? ""
-                let price_sale = json["price_sale"].string ?? ""
-                let image: Data? = nil
-                
-                Product.setupProduct(id: id, description_: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
-            }
-            completion()
-        })
-    }
+//    func searchRequest(_ completion: @escaping Block)  {
+//        let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
+//        UserRequest.listAllProducts(param as [String : AnyObject], completion: { [weak self] json in
+//            guard let weakSelf = self else {return}
+//            json.forEach { _, json in
+//                let id = json["id"].string ?? ""
+//                let created_at = json["created_at"].string ?? ""
+//                let icon = json["icon"].string ?? ""
+//                let name = json["name"].string ?? ""
+//                let category_id = json["category_id"].string ?? ""
+//                let weight = json["weight"].string ?? ""
+//                let description = json["description"].string ?? ""
+//                let brand = json["brand"].string ?? ""
+//                let calories = json["calories"].string ?? ""
+//                let proteins = json["proteins"].string ?? ""
+//                let zhiry = json["zhiry"].string ?? ""
+//                let uglevody = json["uglevody"].string ?? ""
+//                let price = json["price"].string ?? ""
+//                let favorite = json["favorite"].string ?? ""
+//                let status = json["status"].string ?? ""
+//                let expire_date = json["expire_date"].string ?? ""
+//                var units = json["units"].string ?? ""
+//                if units == "kg" {
+//                    units = "кг."
+//                }
+//                if units == "liter" {
+//                    units = "л."
+//                }
+//                let category_name = json["category_name"].string ?? ""
+//                let price_sale = json["price_sale"].string ?? ""
+//                let image: Data? = nil
+//                
+//                Product.setupProduct(id: id, description_: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
+//            }
+//            completion()
+//        })
+//    }
     
     func searchTextChanged(sender: UITextField) {
         if let text = sender.text {
             if text.isEmpty {
                 searchProduct = products;
             } else {
-                searchProduct =  products.filter { $0.name.lowercased().range(of: text, options: .caseInsensitive, range: nil, locale: nil) != nil }
+                searchProduct =  products.filter { $0.name?.lowercased().range(of: text, options: .caseInsensitive, range: nil, locale: nil) != nil }
             }
         }
         tableView.reloadData()
@@ -129,7 +129,7 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         // Button action
         cell.buttomAddAction = { [weak self] (sender) in
-            if productDetails.valuesUnitForWeightAfterRework != "шт"
+            if productDetails.values.first?.unit != "шт"
             {
                 quantityForRealm += quantityWeighInitial ?? 0
                 // For short entry
@@ -176,7 +176,7 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
             } else {
                 let image: Data? = nil
                 
-                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: "\(quantityForRealm)", status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "\(quantityForRealm)", image: image)
+//                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: "\(quantityForRealm)", status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "\(quantityForRealm)", image: image)
             }
             
             let alert = UIAlertController(title: "Товар добавлен в пакет", message: "", preferredStyle: .alert)

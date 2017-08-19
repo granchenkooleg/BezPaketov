@@ -70,20 +70,20 @@ class WeightViewController: CategoryViewController, UICollectionViewDataSource, 
         cell.weightUnitsLabelOne.text = "\(contentWeightProduct[indexPath.row]) " + self.unitOfWeight
         
         // Output icon: liter or kg
-        if (self.unitOfWeight.isEmpty == true) {
-            if (self.unitsFromRealmDB.first?.units == "л.") {
-                cell.iconWeightImageViev.image =  UIImage(named: "but")
-            } else {
-                cell.iconWeightImageViev.image =  UIImage(named: "weight")
-            }
-            cell.weightUnitsLabelOne.text = "\(contentWeightProduct[indexPath.row]) " + (self.unitsFromRealmDB.first?.units ?? "")
-        }
-        else if (self.unitOfWeight == "л.") {
-            cell.iconWeightImageViev.image =  UIImage(named: "but")
-        }
-        else {
-            cell.iconWeightImageViev.image =  UIImage(named: "weight")
-        }
+//        if (self.unitOfWeight.isEmpty == true) {
+//            if (self.unitsFromRealmDB.first?.units == "л.") {
+//                cell.iconWeightImageViev.image =  UIImage(named: "but")
+//            } else {
+//                cell.iconWeightImageViev.image =  UIImage(named: "weight")
+//            }
+//            cell.weightUnitsLabelOne.text = "\(contentWeightProduct[indexPath.row]) " + (self.unitsFromRealmDB.first?.units ?? "")
+//        }
+//        else if (self.unitOfWeight == "л.") {
+//            cell.iconWeightImageViev.image =  UIImage(named: "but")
+//        }
+//        else {
+//            cell.iconWeightImageViev.image =  UIImage(named: "weight")
+//        }
         return cell
     }
     

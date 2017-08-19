@@ -168,50 +168,18 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
             
             let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
             UserRequest.listAllProducts(param as [String : AnyObject], completion: { [weak self] json in
-                guard let weakSelf = self else {return}
+                guard self != nil else {return}
+        
+                Product.setupProduct(json: json) 
                 
                 // Counting quantity goods
-                var quantityGoods = 0
+//                var quantityGoods = 0
                 
-                json.forEach { _, json in
-                    
-                    quantityGoods += 1
-                    print ("ContainVC🔵 : " + "\(quantityGoods)")
-                    
-                    let valuesUnitForWeightAfterRework = String(describing: json["values"][0]["unit"])
-                    let valuesValueForWeightAfterRework = String(describing: json["values"][0]["value"])
-                    let id = String(describing: json["id"])
-                    let created_at = String(describing:json["created_at"])
-                    let icon = String(describing:json["icon"])
-                    let name = String(describing:json["name"])
-                    let category_id = String(describing:json["category_id"])
-                    var weight = String(describing:json["weight"])
-                    if weight == "0" {
-                        weight = ""
-                    }
-                    let description = String(describing:json["description"])
-                    let brand = String(describing:json["brand"])
-                    let calories = String(describing:json["calories"])
-                    let proteins = String(describing:json["proteins"])
-                    let zhiry = String(describing:json["zhiry"])
-                    let uglevody = String(describing:json["uglevody"])
-                    let price = String(describing:json["price"])
-                    let favorite = String(describing:json["favorite"])
-                    let status = String(describing:json["status"])
-                    let expire_date = String(describing:json["expire_date"])
-                    var units = String(describing:json["units"])
-                    if units == "kg" {
-                        units = "кг."
-                    }
-                    if units == "liter" {
-                        units = "л."
-                    }
-                    let category_name = String(describing:json["category_name"])
-                    let price_sale = String(describing:json["price_sale"])
-                    let image: Data? = nil
-                    
-                    Product.setupProduct(valuesUnitForWeightAfterRework: valuesUnitForWeightAfterRework, valuesValueForWeightAfterRework: valuesValueForWeightAfterRework, id: id, description_: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
-                }
+//                json.forEach { _, json in
+//                    
+//                    quantityGoods += 1
+//                    print ("ContainVC🔵 : " + "\(quantityGoods)")
+//                }
                 completion()
                 Logger.log(">>self - \(CFAbsoluteTimeGetCurrent() - startTime)<<", color: .Orange)
                 
@@ -226,11 +194,11 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     // Call by phone number
     @IBAction func phoneNumber_1(_ sender: Any) {
-        callNumber(phoneNumber: "+380673456789")
+        callNumber(phoneNumber: "+380991505472")
     }
     
     @IBAction func phoneNumber_2(_ sender: Any) {
-        callNumber(phoneNumber: "+380635676767")
+        callNumber(phoneNumber: "+380633234267")
     }
     
     private func callNumber(phoneNumber:String) {

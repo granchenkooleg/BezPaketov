@@ -50,36 +50,36 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
         let products = Product().allProducts()
         guard products.count != 0 else {
             
-            // Check Internet connection
-            guard isNetworkReachable() == true  else {
-                Dispatch.mainQueue.async {
-                    let alert = UIAlertController(title: "Нет Интернет Соединения", message: "Убедитесь, что Ваш девайс подключен к сети интернет", preferredStyle: .alert)
-                    let OkAction = UIAlertAction(title: "Ok", style: .default) {action in
-                        guard isNetworkReachable() == true  else {
-                            self.present(alert, animated: true)
-                            return
-                        }
-                        
-                        // Call API method
-                        self.listOfProduct {[weak self] _ in
-                            self?.productsList = Product().allProducts().filter { Double($0.price_sale)! > Double(0.00) }
-                            self?.tableView.reloadData()
-                            self?.spiner.stopAnimating()
-                        }
-                    }
-                    alert.addAction(OkAction)
-                    alert.show()
-                }
-                spiner.stopAnimating()
-                return
-            }
-            
-            // Call API method
-            listOfProduct {[weak self] _ in
-                self?.productsList = Product().allProducts().filter { Double($0.price_sale)! > Double(0.00) }
-                self?.tableView.reloadData()
-                self?.spiner.stopAnimating()
-            }
+//            // Check Internet connection
+//            guard isNetworkReachable() == true  else {
+//                Dispatch.mainQueue.async {
+//                    let alert = UIAlertController(title: "Нет Интернет Соединения", message: "Убедитесь, что Ваш девайс подключен к сети интернет", preferredStyle: .alert)
+//                    let OkAction = UIAlertAction(title: "Ok", style: .default) {action in
+//                        guard isNetworkReachable() == true  else {
+//                            self.present(alert, animated: true)
+//                            return
+//                        }
+//                        
+//                        // Call API method
+//                        self.listOfProduct {[weak self] _ in
+//                            self?.productsList = Product().allProducts().filter { Double($0.price_sale)! > Double(0.00) }
+//                            self?.tableView.reloadData()
+//                            self?.spiner.stopAnimating()
+//                        }
+//                    }
+//                    alert.addAction(OkAction)
+//                    alert.show()
+//                }
+//                spiner.stopAnimating()
+//                return
+//            }
+//            
+//            // Call API method
+//            listOfProduct {[weak self] _ in
+//                self?.productsList = Product().allProducts().filter { Double($0.price_sale)! > Double(0.00) }
+//                self?.tableView.reloadData()
+//                self?.spiner.stopAnimating()
+//            }
             return
         }
         productsList = products.filter { Double($0.price_sale)! > Double(0.00) }
@@ -95,42 +95,16 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
     
     
     
-    func listOfProduct(_ completion: @escaping Block)  {
-        let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
-        UserRequest.listAllProducts(param as [String : AnyObject], completion: {json in
-            json.forEach { _, json in
-                let id = json["id"].string ?? ""
-                let created_at = json["created_at"].string ?? ""
-                let icon = json["icon"].string ?? ""
-                let name = json["name"].string ?? ""
-                let category_id = json["category_id"].string ?? ""
-                let weight = json["weight"].string ?? ""
-                let description = json["description"].string ?? ""
-                let brand = json["brand"].string ?? ""
-                let calories = json["calories"].string ?? ""
-                let proteins = json["proteins"].string ?? ""
-                let zhiry = json["zhiry"].string ?? ""
-                let uglevody = json["uglevody"].string ?? ""
-                let price = json["price"].string ?? ""
-                let favorite = json["favorite"].string ?? ""
-                let status = json["status"].string ?? ""
-                let expire_date = json["expire_date"].string ?? ""
-                var units = json["units"].string ?? ""
-                if units == "kg" {
-                    units = "кг."
-                }
-                if units == "liter" {
-                    units = "л."
-                }
-                let category_name = json["category_name"].string ?? ""
-                let price_sale = json["price_sale"].string ?? ""
-                let image: Data? = nil
-                
-                Product.setupProduct(id: id, description_: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
-            }
-            completion()
-        })
-    }
+//    func listOfProduct(_ completion: @escaping Block)  {
+//        let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
+//        UserRequest.listAllProducts(param as [String : AnyObject], completion: {json in
+//            json.forEach { _, json in
+//               
+//                Product.setupProduct(json: json)
+//            }
+//            completion()
+//        })
+//    }
     
     // MARK: - Table view data source
     
@@ -204,7 +178,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
             } else {
                 let image: Data? = nil
                 
-                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: "\(quantityForRealm)", status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "\(quantityForRealm)", image: image)
+                let _ = ProductsForRealm.setupProduct(id: productDetails.id , descriptionForProduct: productDetails.description_ , proteins: productDetails.proteins , calories: productDetails.calories , zhiry: productDetails.zhiry , favorite: "", category_id: "", brand: productDetails.brand , price_sale: productDetails.price_sale , weight: productDetails.valuesValueForWeightAfterRework, weightAdd: "\(quantityForRealm)", status: "", expire_date: productDetails.expire_date , price: productDetails.price , created_at: productDetails.created_at , icon: productDetails.icon , category_name: "", name: productDetails.name ?? "" , uglevody: productDetails.uglevody , units: productDetails.valuesUnitForWeightAfterRework, quantity: "\(quantityForRealm)", image: image)
             }
             
             Dispatch.mainQueue.async ({
@@ -324,14 +298,14 @@ class ListOfProductsByWeightViewController: ListOfProductsByWeightViewController
         
         let products = Product().allProducts()
         guard products.count != 0 else {
-            listOfProduct {[weak self] _ in
-                self?.productsList = Product().allProducts().filter { (self?.idPodcategory == $0.category_id && self?.weightOfWeightVC == $0.weight)}
-                if self?.productsList.isEmpty == true {
-                    self?.productsList = products.filter {(self?.idPodcategory == $0.category_id && $0.weight == "")}
-                }
-                self?.tableView.reloadData()
-                self?.spiner.stopAnimating()
-            }
+//            listOfProduct {[weak self] _ in
+//                self?.productsList = Product().allProducts().filter { (self?.idPodcategory == $0.category_id && self?.weightOfWeightVC == $0.weight)}
+//                if self?.productsList.isEmpty == true {
+//                    self?.productsList = products.filter {(self?.idPodcategory == $0.category_id && $0.weight == "0")}
+//                }
+//                self?.tableView.reloadData()
+//                self?.spiner.stopAnimating()
+//            }
             
             return
         }
@@ -340,7 +314,7 @@ class ListOfProductsByWeightViewController: ListOfProductsByWeightViewController
         
         productsList = products.filter {(self.idPodcategory == $0.category_id && self.weightOfWeightVC == $0.weight)}
         if productsList.isEmpty == true {
-            productsList = products.filter {(self.idPodcategory == $0.category_id && $0.weight == "")}
+            productsList = products.filter {(self.idPodcategory == $0.category_id && $0.weight == "0")}
         }
         if productsList.isEmpty == true {
             self.spiner.stopAnimating()
@@ -364,43 +338,43 @@ class ListOfProductsByWeightViewController: ListOfProductsByWeightViewController
     }
     
     
-    override func listOfProduct(_ completion: @escaping Block) {
-        let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
-        UserRequest.listAllProducts(param as [String : AnyObject], completion: {json in
-            json.forEach { _, json in
-                let id = json["id"].string ?? ""
-                let created_at = json["created_at"].string ?? ""
-                let icon = json["icon"].string ?? ""
-                let name = json["name"].string ?? ""
-                let category_id = json["category_id"].string ?? ""
-                let weight = json["weight"].string ?? ""
-                let description = json["description"].string ?? ""
-                let brand = json["brand"].string ?? ""
-                let calories = json["calories"].string ?? ""
-                let proteins = json["proteins"].string ?? ""
-                let zhiry = json["zhiry"].string ?? ""
-                let uglevody = json["uglevody"].string ?? ""
-                let price = json["price"].string ?? ""
-                let favorite = json["favorite"].string ?? ""
-                let status = json["status"].string ?? ""
-                let expire_date = json["expire_date"].string ?? ""
-                var units = json["units"].string ?? ""
-                if units == "kg" {
-                    units = "кг."
-                }
-                if units == "liter" {
-                    units = "л."
-                }
-                let category_name = json["category_name"].string ?? ""
-                let price_sale = json["price_sale"].string ?? ""
-                var image: Data? = nil
-                if icon.isEmpty == false, let imageData = try? Data(contentsOf: URL(string: icon) ?? URL(fileURLWithPath: "")){
-                    image = imageData
-                }
-                Product.setupProduct(id: id, description_: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
-            }
-            completion()
-        })
-    }
+//    override func listOfProduct(_ completion: @escaping Block) {
+//        let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
+//        UserRequest.listAllProducts(param as [String : AnyObject], completion: {json in
+//            json.forEach { _, json in
+//                let id = json["id"].string ?? ""
+//                let created_at = json["created_at"].string ?? ""
+//                let icon = json["icon"].string ?? ""
+//                let name = json["name"].string ?? ""
+//                let category_id = json["category_id"].string ?? ""
+//                let weight = json["weight"].string ?? ""
+//                let description = json["description"].string ?? ""
+//                let brand = json["brand"].string ?? ""
+//                let calories = json["calories"].string ?? ""
+//                let proteins = json["proteins"].string ?? ""
+//                let zhiry = json["zhiry"].string ?? ""
+//                let uglevody = json["uglevody"].string ?? ""
+//                let price = json["price"].string ?? ""
+//                let favorite = json["favorite"].string ?? ""
+//                let status = json["status"].string ?? ""
+//                let expire_date = json["expire_date"].string ?? ""
+//                var units = json["units"].string ?? ""
+//                if units == "kg" {
+//                    units = "кг."
+//                }
+//                if units == "liter" {
+//                    units = "л."
+//                }
+//                let category_name = json["category_name"].string ?? ""
+//                let price_sale = json["price_sale"].string ?? ""
+//                var image: Data? = nil
+//                if icon.isEmpty == false, let imageData = try? Data(contentsOf: URL(string: icon) ?? URL(fileURLWithPath: "")){
+//                    image = imageData
+//                }
+//                Product.setupProduct(id: id, description_: description, proteins: proteins, calories: calories, zhiry: zhiry, favorite: favorite, category_id: category_id, brand: brand, price_sale: price_sale, weight: weight, status: status, expire_date: expire_date, price: price, created_at: created_at, icon: icon, category_name: category_name, name: name, uglevody: uglevody, units: units, image: image)
+//            }
+//            completion()
+//        })
+//    }
     
 }
