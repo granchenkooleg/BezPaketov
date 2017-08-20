@@ -37,40 +37,39 @@ struct Products {
 
 
 class Values : Object {
-    dynamic var value = ""
-    dynamic var unit = ""
+    dynamic var value: String? = nil
+    dynamic var unit: String? = nil
     
 }
 
 class Product : Object {
     
-    dynamic var zhiry = ""
-    dynamic var weight = ""
-    dynamic var status = ""
+    dynamic var zhiry: String? = nil
+    dynamic var weight: String? = nil
+    dynamic var status: String? = nil
     dynamic var category_name: String? = nil
-    dynamic var favorite = ""
-    dynamic var icon = ""
-    dynamic var brand = ""
-    dynamic var calories = ""
-    dynamic var proteins = ""
-    dynamic var count = ""
-    dynamic var min_count = ""
-    dynamic var name: String? = ""
-    dynamic var expire_date = ""
-    dynamic var id = ""
-    dynamic var price_sale = ""
-    dynamic var created_at = ""
-    dynamic var price = ""
-    dynamic var category_id: String? = ""
-    dynamic var uglevody = ""
-    dynamic var unit_id: String?
-    dynamic var description_ = ""
+    dynamic var favorite: String? = nil
+    dynamic var icon: String? = nil
+    dynamic var brand: String? = nil
+    dynamic var calories: String? = nil
+    dynamic var proteins: String? = nil
+    dynamic var count: String? = nil
+    dynamic var min_count: String? = nil
+    dynamic var name: String? = nil
+    dynamic var expire_date: String? = nil
+    dynamic var id: String? = nil
+    dynamic var price_sale: String? = nil
+    dynamic var created_at: String? = nil
+    dynamic var price: String? = nil
+    dynamic var category_id: String? = nil
+    dynamic var uglevody: String? = nil
+    dynamic var unit_id: String? = nil
+    dynamic var description_: String? = nil
     var values = List<Values>()
     
-        var valuesUnitForWeightAfterRework = ""
-        var valuesValueForWeightAfterRework = ""
+//        var valuesUnitForWeightAfterRework = ""
+//        var valuesValueForWeightAfterRework = ""
     
-//        dynamic var units = ""
 //        dynamic var favoriteProductOfUser = false
     
     

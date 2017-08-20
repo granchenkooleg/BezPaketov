@@ -27,7 +27,6 @@
 		56EB716B1E9A654600BA1A8C /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB715E1E9A654600BA1A8C /* Dispatch.swift */; };
 		56EB716C1E9A654600BA1A8C /* GenericCollections+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB715F1E9A654600BA1A8C /* GenericCollections+Ext.swift */; };
 		56EB716D1E9A654600BA1A8C /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71601E9A654600BA1A8C /* Keyboard.swift */; };
-		56EB716E1E9A654600BA1A8C /* LayoutPrioritazer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71611E9A654600BA1A8C /* LayoutPrioritazer.swift */; };
 		56EB716F1E9A654600BA1A8C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71621E9A654600BA1A8C /* Logger.swift */; };
 		56EB71701E9A654600BA1A8C /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71631E9A654600BA1A8C /* Notifier.swift */; };
 		56EB71711E9A654600BA1A8C /* Storyboard+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71641E9A654600BA1A8C /* Storyboard+Ext.swift */; };
@@ -93,7 +92,6 @@
 		56EB715E1E9A654600BA1A8C /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		56EB715F1E9A654600BA1A8C /* GenericCollections+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericCollections+Ext.swift"; sourceTree = "<group>"; };
 		56EB71601E9A654600BA1A8C /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
-		56EB71611E9A654600BA1A8C /* LayoutPrioritazer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutPrioritazer.swift; sourceTree = "<group>"; };
 		56EB71621E9A654600BA1A8C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		56EB71631E9A654600BA1A8C /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		56EB71641E9A654600BA1A8C /* Storyboard+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Ext.swift"; sourceTree = "<group>"; };
@@ -108,7 +106,7 @@
 		56EB717B1E9A658000BA1A8C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		56EB71821E9A65A700BA1A8C /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		56EB71831E9A65A700BA1A8C /* InfoAboutUserForOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoAboutUserForOrder.swift; sourceTree = "<group>"; };
-		56EB71841E9A65A700BA1A8C /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		56EB71841E9A65A700BA1A8C /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Product.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		56EB71851E9A65A700BA1A8C /* ProductsForRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsForRealm.swift; sourceTree = "<group>"; };
 		56EB71861E9A65A700BA1A8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		56EB71AA1E9A687600BA1A8C /* BaseLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLoginViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +125,7 @@
 		56EB71CB1E9A697800BA1A8C /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		56EB71CC1E9A697800BA1A8C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		56EB71D11E9A699600BA1A8C /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		56EB71D41E9A69B200BA1A8C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		56EB71D41E9A69B200BA1A8C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SearchViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		56EB71D71E9A69CE00BA1A8C /* WeightCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightCollectionViewCell.swift; sourceTree = "<group>"; };
 		56EB71D81E9A69CE00BA1A8C /* WeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
 		5A1DC0844F1F6130ADD6317B /* Pods_BezPaketov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BezPaketov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,7 +215,6 @@
 				56EB715E1E9A654600BA1A8C /* Dispatch.swift */,
 				56EB715F1E9A654600BA1A8C /* GenericCollections+Ext.swift */,
 				56EB71601E9A654600BA1A8C /* Keyboard.swift */,
-				56EB71611E9A654600BA1A8C /* LayoutPrioritazer.swift */,
 				56EB71621E9A654600BA1A8C /* Logger.swift */,
 				56EB71631E9A654600BA1A8C /* Notifier.swift */,
 				56EB71641E9A654600BA1A8C /* Storyboard+Ext.swift */,
@@ -591,7 +588,6 @@
 				56EB71D21E9A699600BA1A8C /* PaymentViewController.swift in Sources */,
 				56EB716A1E9A654600BA1A8C /* BezierPath+Ext.swift in Sources */,
 				56EB71C01E9A692000BA1A8C /* DrawingUpOfAnOrderViewController.swift in Sources */,
-				56EB716E1E9A654600BA1A8C /* LayoutPrioritazer.swift in Sources */,
 				56EB71421E9A5FC800BA1A8C /* SlimLoggerConfig.swift in Sources */,
 				56EB71891E9A65A700BA1A8C /* Product.swift in Sources */,
 				56EB71701E9A654600BA1A8C /* Notifier.swift in Sources */,

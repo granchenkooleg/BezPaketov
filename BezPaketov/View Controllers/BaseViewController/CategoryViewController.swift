@@ -69,7 +69,7 @@ class CategoryViewControllerSegment: BaseViewController,UITableViewDataSource, U
         let anotherQueue = DispatchQueue(label: "com.appcoda.anotherQueue", qos: .userInteractive, attributes: [.concurrent, .initiallyInactive])
         inactiveQueue = anotherQueue
         
-        anotherQueue.async(execute: { [weak self] in
+        anotherQueue.async(execute: {
             let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
             UserRequest.getAllCategories(param as [String : AnyObject], completion: { json in
                 json.forEach { _, json in

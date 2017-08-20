@@ -14,6 +14,14 @@ func GUID() -> String {
     return UUID().uuidString
 }
 
+// MARK: Optionals interpolation
+prefix operator ???
+
+prefix func ??? (optional: String?) -> String {
+    return optional ?? ""
+}
+//----------------------------------------------
+
 extension NSString {
     
     var URL: Foundation.URL? {
