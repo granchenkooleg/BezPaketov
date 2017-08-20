@@ -24,13 +24,13 @@ extension Results {
 }
 
 struct CategoryStruct {
-    var id = ""
     var icon = ""
+    var id = ""
     var name = ""
-    var created_at = ""
-    var units = ""
-    var category_id = ""
-    var image = Data()
+//    var created_at = ""
+//    var units = ""
+//    var category_id = ""
+//    var image = Data()
 }
 
 class Category: Object {

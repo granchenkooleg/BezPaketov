@@ -270,7 +270,7 @@ class BaseViewController: UIViewController, KeyboardNotifying {
             }
         }
         
-        return String(totalPrice)
+        return String(format: "%.2f", totalPrice)
     }
     
     

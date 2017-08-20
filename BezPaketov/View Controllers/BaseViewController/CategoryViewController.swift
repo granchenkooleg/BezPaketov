@@ -217,15 +217,15 @@ class CategoryViewController: BaseViewController, UITableViewDataSource, UITable
             }
             
             json.forEach { _, json in
-                let id = json["id"].string ?? ""
-                let category_id = json["category_id"].string ?? ""
-                let created_at = json["created_at"].string ?? ""
                 let icon = json["icon"].string ?? ""
+                let id = json["id"].string ?? ""
+                /*let category_id = json["category_id"].string ?? ""*/
+                /*let created_at = json["created_at"].string ?? ""*/
                 let name = json["name"].string ?? ""
-                let units = json["units"].string ?? ""
-                let image = Data()
+                /*let units = json["units"].string ?? ""*/
                 
-                let category = CategoryStruct(id: id, icon: icon, name: name, created_at: created_at, units: units, category_id: category_id, image: image)
+                
+                let category = CategoryStruct(icon: icon, id: id, name: name/*, created_at: created_at, units: units, category_id: category_id*/)
                 self?.categories.append(category)
             }
             weakSelf.categoriesList = weakSelf.categories
@@ -283,13 +283,13 @@ class CategoryViewController: BaseViewController, UITableViewDataSource, UITable
                 let listOfProductsByWeightViewController = Storyboard.ListOfWeightProducts.instantiate()
                 listOfProductsByWeightViewController.nameListsOfProductsHeaderText = self.categoriesList[indexPath.row].name
                 listOfProductsByWeightViewController.idPodcategory = self.categoriesList[indexPath.row].id
-                listOfProductsByWeightViewController.unitOfWeightForListOfProductsByWeightVC = self.categoriesList[indexPath.row].units
+                /*listOfProductsByWeightViewController.unitOfWeightForListOfProductsByWeightVC = self.categoriesList[indexPath.row].units*/
                 listOfProductsByWeightViewController.addToContainer()
                 
             } else {
                 
                 guard let weightViewController = UIStoryboard.main["weight"] as? WeightViewController else { return }
-                weightViewController.unitOfWeight = (self.categoriesList[indexPath.row].units)
+               /* weightViewController.unitOfWeight = (self.categoriesList[indexPath.row].units)*/
                 weightViewController.nameWeightHeaderText = (self.categoriesList[indexPath.row].name)
                 weightViewController.podCategory_id = (self.categoriesList[indexPath.row].id)
                 weightViewController.addToContainer()

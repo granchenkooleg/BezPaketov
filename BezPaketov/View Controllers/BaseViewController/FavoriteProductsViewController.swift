@@ -165,7 +165,7 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
         }
         
         // Button action
-        cell.buttomAddAction = { [weak self] (sender) in
+        cell.buttomAddAction = { /*[weak self]*/ (sender) in
             if productDetails.valuesUnitForWeightAfterRework != "шт"
             {
                 quantityForRealm += quantityWeighInitial ?? 0
@@ -182,7 +182,7 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
             
         }
         
-        cell.buttonSubAction = { [weak self] (sender) in
+        cell.buttonSubAction = { /*[weak self]*/ (sender) in
             if productDetails.valuesUnitForWeightAfterRework != "шт" {
                 guard quantityForRealm > (quantityWeighInitial ?? 0) else { return }
                 quantityForRealm -= quantityWeighInitial ?? 0
@@ -206,7 +206,7 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
             let realm = try! Realm()
             if let product = realm.objects(ProductsForRealm.self).filter("id  == [c] %@", productDetails.id ).first {
                 try! realm.write {
-                    product.weightAdd = "\((Int(product.weightAdd!) ?? 0) + quantityForRealm)"
+                    product.weightAdd = "\((Int(???product.weightAdd) ?? 0) + quantityForRealm)"
                     
                     guard productDetails.valuesUnitForWeightAfterRework == "шт" else {return }
                     product.quantity = "\((Int(product.quantity) ?? 0) + quantityForRealm)"
