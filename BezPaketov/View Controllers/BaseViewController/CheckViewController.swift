@@ -28,7 +28,7 @@ class CheckViewController: BasketViewController {
     func dateFormatter() -> String {
         let date = NSDate()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy hh:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy hh:mm"
         let dateString = dateFormatter.string(from: date as Date)
         // Custom Date Format  28-Feb-2016 11:41:51
         return String(dateString)

@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftyJSON
 
 extension Object {
     static func getObject(by id: Int) -> Object? {
@@ -34,43 +35,27 @@ struct CategoryStruct {
 }
 
 class Category: Object {
-    
-    dynamic var id = ""
     dynamic var icon = ""
+    dynamic var id = ""
     dynamic var name = ""
-    dynamic var created_at = ""
-    dynamic var units = ""
-    dynamic var category_id = ""
-    dynamic var image: Data? = nil
+//    dynamic var created_at = ""
+//    dynamic var units = ""
+//    dynamic var category_id = ""
     
     override static func primaryKey() -> String? {
         return "id"
     }
     
-    @discardableResult class func setupCategory(id: String = "",
-                                                icon: String = "",
-                                                name: String = "",
-                                                created_at: String = "",
-                                                units: String = "",
-                                                category_id: String = "",
-                                                image: Data? = nil) -> Category {
-        
-        let categoryData: Dictionary<String, Any> = [
-            "id": id,
-            "icon": icon,
-            "name": name,
-            "created_at": created_at,
-            "units": units,
-            "category_id": category_id,
-            "image": image ?? Data()]
-        
-        let category = Category(value: categoryData)
-        
+    @discardableResult class func setupCategory(json: JSON) -> Category {
+        var categoryList = Category()
         let realm = try! Realm()
+        
         try! realm.write {
-            realm.add(category, update: true)
+            for category in json.arrayValue {
+                categoryList = realm.create((Category.self), value: category.object, update: true)
+            }
         }
-        return category
+        return categoryList
     }
     
     func allCategories() -> [Category] {

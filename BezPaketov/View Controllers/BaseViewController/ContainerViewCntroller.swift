@@ -338,7 +338,7 @@ class Menu: UIView, UITableViewDataSource, UITableViewDelegate {
                         let listOfProductsByWeightViewController = Storyboard.ListOfWeightProducts.instantiate()
                         listOfProductsByWeightViewController.nameListsOfProductsHeaderText = self?.categoryContainer[indexPath.row].name
                         listOfProductsByWeightViewController.idPodcategory = self?.categoryContainer[indexPath.row].id
-                        listOfProductsByWeightViewController.unitOfWeightForListOfProductsByWeightVC = self?.categoryContainer[indexPath.row].units
+                        /*listOfProductsByWeightViewController.unitOfWeightForListOfProductsByWeightVC = self?.categoryContainer[indexPath.row].units*/
                         guard let containerViewController = UINavigationController.main.viewControllers.first as? ContainerViewController else { return }
                         listOfProductsByWeightViewController.addToContainer()
                         containerViewController.showMenu(false, animated: false)
@@ -346,7 +346,7 @@ class Menu: UIView, UITableViewDataSource, UITableViewDelegate {
                     } else {
                         
                         let weightViewController = Storyboard.Weight.instantiate()
-                        weightViewController.unitOfWeight = (self?.categoryContainer[indexPath.row].units) ?? ""
+                        /*weightViewController.unitOfWeight = (self?.categoryContainer[indexPath.row].units) ?? ""*/
                         weightViewController.nameWeightHeaderText = (self?.categoryContainer[indexPath.row].name) ?? ""
                         weightViewController.podCategory_id = (self?.categoryContainer[indexPath.row].id) ?? ""
                         guard let containerViewController = UINavigationController.main.viewControllers.first as? ContainerViewController else { return }

@@ -22,6 +22,9 @@ func requestHandler(_ function: Any, urlRequest: URLRequestConvertible, completi
     Logger.log("API call\n\t function - \(function)\n\t url - \(url)\n\t method - \(method)\n\t headerParams - \(headers)\n\t bodyParam - \(body)", color: .Yellow)
     
     Alamofire.request(urlRequest)
+//        .downloadProgress { progress in
+//            print("Download Progress: \(progress.fractionCompleted)")
+//        }
         .validate()
         .responseJSON { response in
             var errorDescription = ""
