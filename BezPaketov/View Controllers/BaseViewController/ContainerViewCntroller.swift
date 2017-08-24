@@ -169,6 +169,9 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
             let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
             UserRequest.listAllProducts(param as [String : AnyObject], completion: { [weak self] json in
                 guard self != nil else {return}
+                
+                self?.progressHUD.hide()
+                self?.backgroundImage.removeFromSuperview()
         
                 Product.setupProduct(json: json) 
                 
@@ -185,8 +188,6 @@ class ContainerViewController: BaseViewController, UIGestureRecognizerDelegate {
                 
 //                let when = DispatchTime.now() + 1.5 // delay 1.5 to desired number of seconds
 //                DispatchQueue.main.asyncAfter(deadline: when) {
-                self?.progressHUD.hide()
-                self?.backgroundImage.removeFromSuperview()
 //                }
             })
         }

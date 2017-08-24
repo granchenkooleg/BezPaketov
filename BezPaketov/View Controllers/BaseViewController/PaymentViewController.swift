@@ -84,6 +84,7 @@ class PaymentViewController: BasketViewController, MFMailComposeViewControllerDe
         // Present the alert controller
         self.present(alertController, animated: true, completion:nil)
         
+        customTextLabel.text = ""
         continueButton.isHidden = false
         noButton.isHidden = true
         needChangeButton.isHidden = true
@@ -91,10 +92,10 @@ class PaymentViewController: BasketViewController, MFMailComposeViewControllerDe
     
     // Here is the action when you press noButton which is visible
     @IBAction func noButton(_ sender: UIButton) {
+        customTextLabel.text = ""
         continueButton.isHidden = false
         noButton.isHidden = true
         needChangeButton.isHidden = true
-        
     }
     
     // MARK: Sender to CheckVC

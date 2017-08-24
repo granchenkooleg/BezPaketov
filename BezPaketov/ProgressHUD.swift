@@ -52,13 +52,13 @@ class ProgressHUD: UIVisualEffectView {
             let width = superview.frame.size.width / 1.1
             let height: CGFloat = 100.0
             self.frame = CGRect(x: superview.frame.size.width / 2 - width / 2,
-                                y: superview.frame.height - 220,
+                                y: superview.frame.height / 1.4,
                                 width: width,
                                 height: height)
             vibrancyView.frame = self.bounds
             
             let activityIndicatorSize: CGFloat = 40
-            activityIndictor.frame = CGRect(x: 150,
+            activityIndictor.frame = CGRect(x: superview.frame.size.width / 2 - activityIndicatorSize,
                                             y: height / 1.3 - activityIndicatorSize / 2,
                                             width: activityIndicatorSize,
                                             height: activityIndicatorSize)
@@ -67,7 +67,7 @@ class ProgressHUD: UIVisualEffectView {
             layer.masksToBounds = true
             label.text = text
             label.textAlignment = NSTextAlignment.center
-            label.frame = CGRect(x: activityIndicatorSize + 5,
+            label.frame = CGRect(x: superview.frame.size.width / 10,
                                  y: 0,
                                  width: width - activityIndicatorSize - 15,
                                  height: height)
