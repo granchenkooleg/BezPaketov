@@ -63,6 +63,7 @@
 		56EB71D51E9A69B200BA1A8C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71D41E9A69B200BA1A8C /* SearchViewController.swift */; };
 		56EB71D91E9A69CE00BA1A8C /* WeightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71D71E9A69CE00BA1A8C /* WeightCollectionViewCell.swift */; };
 		56EB71DA1E9A69CE00BA1A8C /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71D81E9A69CE00BA1A8C /* WeightViewController.swift */; };
+		7C1903DB1F9D2F1E00AC348D /* UIImageExt..swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1903DA1F9D2F1E00AC348D /* UIImageExt..swift */; };
 		7C247FE21F40EC330083C10D /* UILabel+TextSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C247FE11F40EC330083C10D /* UILabel+TextSpacing.swift */; };
 		A641E0708A9E9E978CDC7384 /* Pods_BezPaketov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1DC0844F1F6130ADD6317B /* Pods_BezPaketov.framework */; };
 /* End PBXBuildFile section */
@@ -129,6 +130,7 @@
 		56EB71D71E9A69CE00BA1A8C /* WeightCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightCollectionViewCell.swift; sourceTree = "<group>"; };
 		56EB71D81E9A69CE00BA1A8C /* WeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
 		5A1DC0844F1F6130ADD6317B /* Pods_BezPaketov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BezPaketov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C1903DA1F9D2F1E00AC348D /* UIImageExt..swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt..swift; sourceTree = "<group>"; };
 		7C247FE11F40EC330083C10D /* UILabel+TextSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+TextSpacing.swift"; sourceTree = "<group>"; };
 		BAF2BCA138DAD1575C23EAB7 /* Pods-BezPaketov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BezPaketov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BezPaketov/Pods-BezPaketov.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +225,7 @@
 				56EB71671E9A654600BA1A8C /* UIColor+Ext.swift */,
 				56EB71681E9A654600BA1A8C /* View+Ext.swift */,
 				7C247FE11F40EC330083C10D /* UILabel+TextSpacing.swift */,
+				7C1903DA1F9D2F1E00AC348D /* UIImageExt..swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				56EB71B21E9A68C200BA1A8C /* BasketViewController.swift in Sources */,
 				56EB71871E9A65A700BA1A8C /* Category.swift in Sources */,
 				56EB71691E9A654600BA1A8C /* APIRequest.swift in Sources */,
+				7C1903DB1F9D2F1E00AC348D /* UIImageExt..swift in Sources */,
 				56EB71D51E9A69B200BA1A8C /* SearchViewController.swift in Sources */,
 				56EB71D91E9A69CE00BA1A8C /* WeightCollectionViewCell.swift in Sources */,
 				56EB71BD1E9A690B00BA1A8C /* DetailsProductViewController.swift in Sources */,
