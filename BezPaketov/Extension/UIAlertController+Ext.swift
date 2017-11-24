@@ -2,8 +2,8 @@
 //  UIAlertController+.swift
 //  BinarySwipe
 //
-//  Created by Yuriy on 5/31/16.
-//  Copyright © 2016 EasternPeak. All rights reserved.
+//  Created by Oleg on 5/31/16.
+//  Copyright © 2016 Oleg. All rights reserved.
 //
 
 import Foundation

@@ -3,7 +3,7 @@
 //  BezPaketov
 //
 //  Created by Oleg on 10/22/17.
-//  Copyright © 2017 Yura Granchenko. All rights reserved.
+//  Copyright © 2017 Oleg. All rights reserved.
 //
 
 import UIKit

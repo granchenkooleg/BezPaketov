@@ -6,7 +6,9 @@ target 'BezPaketov' do
   source 'https://github.com/CocoaPods/Specs.git'
   platform :ios, '10.0'
   use_frameworks!
-  
+
+  pod 'Quick'
+  pod 'Nimble'
   pod 'RealmSwift'
   pod 'Alamofire'
   pod 'SnapKit'

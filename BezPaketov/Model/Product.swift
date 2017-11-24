@@ -2,7 +2,7 @@
 //  Product.swift
 //  Bezpaketov
 //
-//  Created by Macostik on 12/4/16.
+//  Created by Oleg on 12/4/16.
 //  Copyright © 2016 Oleg. All rights reserved.
 //
 

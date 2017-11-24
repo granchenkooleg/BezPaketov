@@ -2,8 +2,8 @@
 //  ConfirmView.swift
 //  BinarySwipe
 //
-//  Created by Yuriy on 6/23/16.
-//  Copyright © 2016 EasternPeak. All rights reserved.
+//  Created by Oleg on 6/23/16.
+//  Copyright © 2016 Oleg. All rights reserved.
 //
 
 import Foundation

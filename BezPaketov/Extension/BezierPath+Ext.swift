@@ -2,8 +2,8 @@
 //  BezierPath+Ext.swift
 //  BinarySwipe
 //
-//  Created by Macostik on 5/24/16.
-//  Copyright © 2016 EasternPeak. All rights reserved.
+//  Created by Oleg on 5/24/16.
+//  Copyright © 2016 Oleg. All rights reserved.
 //
 
 import Foundation

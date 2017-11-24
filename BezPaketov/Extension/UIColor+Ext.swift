@@ -2,8 +2,8 @@
 //  UIColor+Ext.swift
 //  BinarySwipe
 //
-//  Created by Yuriy on 6/14/16.
-//  Copyright © 2016 EasternPeak. All rights reserved.
+//  Created by Oleg on 6/14/16.
+//  Copyright © 2016 Oleg. All rights reserved.
 //
 
 import Foundation

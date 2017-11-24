@@ -2,7 +2,7 @@
 //  MainViewController.swift
 //  Bezpaketov
 //
-//  Created by Yuriy on 11/29/16.
+//  Created by Oleg on 11/29/16.
 //  Copyright © 2016 Oleg. All rights reserved.
 //
 

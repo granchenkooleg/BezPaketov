@@ -2,8 +2,8 @@
 //  String+Ext.swift
 //  BinarySwipe
 //
-//  Created by Macostik on 5/23/16.
-//  Copyright © 2016 EasternPeak. All rights reserved.
+//  Created by Oleg on 5/23/16.
+//  Copyright © 2016 Oleg. All rights reserved.
 //
 
 import Foundation

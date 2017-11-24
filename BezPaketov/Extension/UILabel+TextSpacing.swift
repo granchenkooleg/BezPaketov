@@ -3,7 +3,7 @@
 //  BezPaketov
 //
 //  Created by Oleg on 8/13/17.
-//  Copyright © 2017 Yura Granchenko. All rights reserved.
+//  Copyright © 2017 Oleg. All rights reserved.
 //
 
 import Foundation

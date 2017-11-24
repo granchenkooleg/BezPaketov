@@ -2,7 +2,7 @@
 //  FavoriteProductsViewController.swift
 //  Bezpaketov
 //
-//  Created by Yuriy on 1/3/17.
+//  Created by Oleg on 1/3/17.
 //  Copyright © 2017 Oleg. All rights reserved.
 //
 
