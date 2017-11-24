@@ -75,8 +75,8 @@
 		56EB712F1E9A5C5400BA1A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56EB71351E9A5F6800BA1A8C /* BezPaketov-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BezPaketov-Bridging-Header.h"; sourceTree = "<group>"; };
 		56EB71361E9A5F6900BA1A8C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		56EB71381E9A5F7800BA1A8C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		56EB71391E9A5F7800BA1A8C /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		56EB71381E9A5F7800BA1A8C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		56EB71391E9A5F7800BA1A8C /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SignUp.storyboard; path = ../SignUp.storyboard; sourceTree = "<group>"; };
 		56EB713D1E9A5FC800BA1A8C /* SlimLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLogger.swift; sourceTree = "<group>"; };
 		56EB713E1E9A5FC800BA1A8C /* SlimLoggerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLoggerConfig.swift; sourceTree = "<group>"; };
 		56EB713F1E9A5FC800BA1A8C /* SlimLogglyDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLogglyDestination.swift; sourceTree = "<group>"; };
@@ -159,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				56EB71221E9A5C5400BA1A8C /* BezPaketov */,
+				56EB715B1E9A653400BA1A8C /* Extension */,
+				7C58D10B1FC8B3AA00B01A8F /* Supporting Files */,
 				56EB713C1E9A5FAC00BA1A8C /* Slim */,
 				56EB71211E9A5C5400BA1A8C /* Products */,
 				8F8C5847425E978959F5027A /* Pods */,
@@ -177,20 +179,6 @@
 		56EB71221E9A5C5400BA1A8C /* BezPaketov */ = {
 			isa = PBXGroup;
 			children = (
-				56EB71491E9A624000BA1A8C /* iTunesArtwork */,
-				56EB71361E9A5F6900BA1A8C /* AppDelegate.swift */,
-				56EB71471E9A622E00BA1A8C /* Constants.swift */,
-				56EB714D1E9A626D00BA1A8C /* NetworkReachabilityManager.swift */,
-				56EB714E1E9A626D00BA1A8C /* ProgressHUD.swift */,
-				56EB71381E9A5F7800BA1A8C /* Main.storyboard */,
-				56EB71391E9A5F7800BA1A8C /* SignUp.storyboard */,
-				56EB712C1E9A5C5400BA1A8C /* LaunchScreen.storyboard */,
-				56EB71591E9A63B800BA1A8C /* GoogleService-Info.plist */,
-				56EB712F1E9A5C5400BA1A8C /* Info.plist */,
-				56EB71351E9A5F6800BA1A8C /* BezPaketov-Bridging-Header.h */,
-				56EB714B1E9A624E00BA1A8C /* BezPaketov.ttf */,
-				56EB71451E9A621E00BA1A8C /* Assets.xcassets */,
-				56EB715B1E9A653400BA1A8C /* Extension */,
 				56EB71811E9A659800BA1A8C /* Model */,
 				56EB71761E9A656200BA1A8C /* View */,
 				56EB718C1E9A65C500BA1A8C /* ViewControllers */,
@@ -227,12 +215,16 @@
 				7C247FE11F40EC330083C10D /* UILabel+TextSpacing.swift */,
 				7C1903DA1F9D2F1E00AC348D /* UIImageExt..swift */,
 			);
-			path = Extension;
+			name = Extension;
+			path = BezPaketov/Extension;
 			sourceTree = "<group>";
 		};
 		56EB71761E9A656200BA1A8C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				56EB71381E9A5F7800BA1A8C /* Main.storyboard */,
+				56EB71391E9A5F7800BA1A8C /* SignUp.storyboard */,
+				56EB712C1E9A5C5400BA1A8C /* LaunchScreen.storyboard */,
 				56EB71771E9A658000BA1A8C /* Button.swift */,
 				56EB71781E9A658000BA1A8C /* ConfirmView.swift */,
 				56EB71791E9A658000BA1A8C /* Label.swift */,
@@ -386,6 +378,24 @@
 			);
 			name = WeightViewController;
 			path = "View Controllers/BaseViewController";
+			sourceTree = "<group>";
+		};
+		7C58D10B1FC8B3AA00B01A8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				56EB71491E9A624000BA1A8C /* iTunesArtwork */,
+				56EB71361E9A5F6900BA1A8C /* AppDelegate.swift */,
+				56EB71471E9A622E00BA1A8C /* Constants.swift */,
+				56EB714D1E9A626D00BA1A8C /* NetworkReachabilityManager.swift */,
+				56EB714E1E9A626D00BA1A8C /* ProgressHUD.swift */,
+				56EB71591E9A63B800BA1A8C /* GoogleService-Info.plist */,
+				56EB712F1E9A5C5400BA1A8C /* Info.plist */,
+				56EB71351E9A5F6800BA1A8C /* BezPaketov-Bridging-Header.h */,
+				56EB714B1E9A624E00BA1A8C /* BezPaketov.ttf */,
+				56EB71451E9A621E00BA1A8C /* Assets.xcassets */,
+			);
+			name = "Supporting Files";
+			path = BezPaketov;
 			sourceTree = "<group>";
 		};
 		8F8C5847425E978959F5027A /* Pods */ = {
@@ -628,6 +638,7 @@
 				56EB712D1E9A5C5400BA1A8C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
