@@ -8,20 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		56EB712E1E9A5C5400BA1A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56EB712C1E9A5C5400BA1A8C /* LaunchScreen.storyboard */; };
-		56EB71371E9A5F6900BA1A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71361E9A5F6900BA1A8C /* AppDelegate.swift */; };
-		56EB713A1E9A5F7800BA1A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56EB71381E9A5F7800BA1A8C /* Main.storyboard */; };
-		56EB713B1E9A5F7800BA1A8C /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56EB71391E9A5F7800BA1A8C /* SignUp.storyboard */; };
 		56EB71411E9A5FC800BA1A8C /* SlimLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB713D1E9A5FC800BA1A8C /* SlimLogger.swift */; };
 		56EB71421E9A5FC800BA1A8C /* SlimLoggerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB713E1E9A5FC800BA1A8C /* SlimLoggerConfig.swift */; };
 		56EB71431E9A5FC800BA1A8C /* SlimLogglyDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB713F1E9A5FC800BA1A8C /* SlimLogglyDestination.swift */; };
 		56EB71441E9A5FC800BA1A8C /* SlimLogglyDestinationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71401E9A5FC800BA1A8C /* SlimLogglyDestinationConfig.swift */; };
-		56EB71461E9A621E00BA1A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56EB71451E9A621E00BA1A8C /* Assets.xcassets */; };
-		56EB71481E9A622E00BA1A8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71471E9A622E00BA1A8C /* Constants.swift */; };
-		56EB714A1E9A624000BA1A8C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 56EB71491E9A624000BA1A8C /* iTunesArtwork */; };
-		56EB714C1E9A624E00BA1A8C /* BezPaketov.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56EB714B1E9A624E00BA1A8C /* BezPaketov.ttf */; };
-		56EB714F1E9A626D00BA1A8C /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB714D1E9A626D00BA1A8C /* NetworkReachabilityManager.swift */; };
-		56EB71501E9A626D00BA1A8C /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB714E1E9A626D00BA1A8C /* ProgressHUD.swift */; };
-		56EB715A1E9A63B800BA1A8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56EB71591E9A63B800BA1A8C /* GoogleService-Info.plist */; };
 		56EB71691E9A654600BA1A8C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB715C1E9A654600BA1A8C /* APIRequest.swift */; };
 		56EB716A1E9A654600BA1A8C /* BezierPath+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB715D1E9A654600BA1A8C /* BezierPath+Ext.swift */; };
 		56EB716B1E9A654600BA1A8C /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB715E1E9A654600BA1A8C /* Dispatch.swift */; };
@@ -63,6 +53,18 @@
 		56EB71D51E9A69B200BA1A8C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71D41E9A69B200BA1A8C /* SearchViewController.swift */; };
 		56EB71D91E9A69CE00BA1A8C /* WeightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71D71E9A69CE00BA1A8C /* WeightCollectionViewCell.swift */; };
 		56EB71DA1E9A69CE00BA1A8C /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71D81E9A69CE00BA1A8C /* WeightViewController.swift */; };
+		7C005E041FCA4E5D00F80278 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C005E021FCA4E5D00F80278 /* Main.storyboard */; };
+		7C005E051FCA4E5D00F80278 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C005E031FCA4E5D00F80278 /* SignUp.storyboard */; };
+		7C005E101FCA4F0B00F80278 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C005E061FCA4F0B00F80278 /* AppDelegate.swift */; };
+		7C005E111FCA4F0B00F80278 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C005E071FCA4F0B00F80278 /* Assets.xcassets */; };
+		7C005E121FCA4F0B00F80278 /* BezPaketov.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C005E091FCA4F0B00F80278 /* BezPaketov.ttf */; };
+		7C005E131FCA4F0B00F80278 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C005E0A1FCA4F0B00F80278 /* Constants.swift */; };
+		7C005E141FCA4F0B00F80278 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C005E0B1FCA4F0B00F80278 /* GoogleService-Info.plist */; };
+		7C005E161FCA4F0B00F80278 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7C005E0D1FCA4F0B00F80278 /* iTunesArtwork */; };
+		7C005E171FCA4F0B00F80278 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C005E0E1FCA4F0B00F80278 /* NetworkReachabilityManager.swift */; };
+		7C005E181FCA4F0B00F80278 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C005E0F1FCA4F0B00F80278 /* ProgressHUD.swift */; };
+		7C005E1F1FCA519400F80278 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C005E1E1FCA519400F80278 /* Info.plist */; };
+		7C005E201FCA519400F80278 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C005E1E1FCA519400F80278 /* Info.plist */; };
 		7C1903DB1F9D2F1E00AC348D /* UIImageExt..swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1903DA1F9D2F1E00AC348D /* UIImageExt..swift */; };
 		7C247FE21F40EC330083C10D /* UILabel+TextSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C247FE11F40EC330083C10D /* UILabel+TextSpacing.swift */; };
 		7CFC59031FCA0F2A00E7F4E9 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC59021FCA0F2900E7F4E9 /* UserSpec.swift */; };
@@ -87,22 +89,10 @@
 		4B90176B5D9D008A0039DAF5 /* Pods-BezPaketov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BezPaketov.release.xcconfig"; path = "Pods/Target Support Files/Pods-BezPaketov/Pods-BezPaketov.release.xcconfig"; sourceTree = "<group>"; };
 		56EB71201E9A5C5400BA1A8C /* BezPaketov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezPaketov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EB712D1E9A5C5400BA1A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		56EB712F1E9A5C5400BA1A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56EB71351E9A5F6800BA1A8C /* BezPaketov-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BezPaketov-Bridging-Header.h"; sourceTree = "<group>"; };
-		56EB71361E9A5F6900BA1A8C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		56EB71381E9A5F7800BA1A8C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
-		56EB71391E9A5F7800BA1A8C /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SignUp.storyboard; path = ../SignUp.storyboard; sourceTree = "<group>"; };
 		56EB713D1E9A5FC800BA1A8C /* SlimLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLogger.swift; sourceTree = "<group>"; };
 		56EB713E1E9A5FC800BA1A8C /* SlimLoggerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLoggerConfig.swift; sourceTree = "<group>"; };
 		56EB713F1E9A5FC800BA1A8C /* SlimLogglyDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLogglyDestination.swift; sourceTree = "<group>"; };
 		56EB71401E9A5FC800BA1A8C /* SlimLogglyDestinationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLogglyDestinationConfig.swift; sourceTree = "<group>"; };
-		56EB71451E9A621E00BA1A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		56EB71471E9A622E00BA1A8C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		56EB71491E9A624000BA1A8C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		56EB714B1E9A624E00BA1A8C /* BezPaketov.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BezPaketov.ttf; sourceTree = "<group>"; };
-		56EB714D1E9A626D00BA1A8C /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		56EB714E1E9A626D00BA1A8C /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
-		56EB71591E9A63B800BA1A8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		56EB715C1E9A654600BA1A8C /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		56EB715D1E9A654600BA1A8C /* BezierPath+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BezierPath+Ext.swift"; sourceTree = "<group>"; };
 		56EB715E1E9A654600BA1A8C /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
@@ -145,6 +135,18 @@
 		56EB71D71E9A69CE00BA1A8C /* WeightCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightCollectionViewCell.swift; sourceTree = "<group>"; };
 		56EB71D81E9A69CE00BA1A8C /* WeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
 		5A1DC0844F1F6130ADD6317B /* Pods_BezPaketov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BezPaketov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C005E021FCA4E5D00F80278 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7C005E031FCA4E5D00F80278 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		7C005E061FCA4F0B00F80278 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SupportingFiles/AppDelegate.swift; sourceTree = "<group>"; };
+		7C005E071FCA4F0B00F80278 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SupportingFiles/Assets.xcassets; sourceTree = "<group>"; };
+		7C005E091FCA4F0B00F80278 /* BezPaketov.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BezPaketov.ttf; path = SupportingFiles/BezPaketov.ttf; sourceTree = "<group>"; };
+		7C005E0A1FCA4F0B00F80278 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = SupportingFiles/Constants.swift; sourceTree = "<group>"; };
+		7C005E0B1FCA4F0B00F80278 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SupportingFiles/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7C005E0D1FCA4F0B00F80278 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = SupportingFiles/iTunesArtwork; sourceTree = "<group>"; };
+		7C005E0E1FCA4F0B00F80278 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = SupportingFiles/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		7C005E0F1FCA4F0B00F80278 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressHUD.swift; path = SupportingFiles/ProgressHUD.swift; sourceTree = "<group>"; };
+		7C005E1A1FCA514900F80278 /* BezPaketov-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BezPaketov-Bridging-Header.h"; sourceTree = "<group>"; };
+		7C005E1E1FCA519400F80278 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C1903DA1F9D2F1E00AC348D /* UIImageExt..swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt..swift; sourceTree = "<group>"; };
 		7C247FE11F40EC330083C10D /* UILabel+TextSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+TextSpacing.swift"; sourceTree = "<group>"; };
 		7CFC59001FCA0F2900E7F4E9 /* BezPaketovTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezPaketovTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,8 +255,8 @@
 		56EB71761E9A656200BA1A8C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56EB71381E9A5F7800BA1A8C /* Main.storyboard */,
-				56EB71391E9A5F7800BA1A8C /* SignUp.storyboard */,
+				7C005E021FCA4E5D00F80278 /* Main.storyboard */,
+				7C005E031FCA4E5D00F80278 /* SignUp.storyboard */,
 				56EB712C1E9A5C5400BA1A8C /* LaunchScreen.storyboard */,
 				56EB71771E9A658000BA1A8C /* Button.swift */,
 				56EB71781E9A658000BA1A8C /* ConfirmView.swift */,
@@ -414,16 +416,16 @@
 		7C58D10B1FC8B3AA00B01A8F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				56EB71491E9A624000BA1A8C /* iTunesArtwork */,
-				56EB71361E9A5F6900BA1A8C /* AppDelegate.swift */,
-				56EB71471E9A622E00BA1A8C /* Constants.swift */,
-				56EB714D1E9A626D00BA1A8C /* NetworkReachabilityManager.swift */,
-				56EB714E1E9A626D00BA1A8C /* ProgressHUD.swift */,
-				56EB71591E9A63B800BA1A8C /* GoogleService-Info.plist */,
-				56EB712F1E9A5C5400BA1A8C /* Info.plist */,
-				56EB71351E9A5F6800BA1A8C /* BezPaketov-Bridging-Header.h */,
-				56EB714B1E9A624E00BA1A8C /* BezPaketov.ttf */,
-				56EB71451E9A621E00BA1A8C /* Assets.xcassets */,
+				7C005E061FCA4F0B00F80278 /* AppDelegate.swift */,
+				7C005E071FCA4F0B00F80278 /* Assets.xcassets */,
+				7C005E091FCA4F0B00F80278 /* BezPaketov.ttf */,
+				7C005E1A1FCA514900F80278 /* BezPaketov-Bridging-Header.h */,
+				7C005E0A1FCA4F0B00F80278 /* Constants.swift */,
+				7C005E0B1FCA4F0B00F80278 /* GoogleService-Info.plist */,
+				7C005E1E1FCA519400F80278 /* Info.plist */,
+				7C005E0D1FCA4F0B00F80278 /* iTunesArtwork */,
+				7C005E0E1FCA4F0B00F80278 /* NetworkReachabilityManager.swift */,
+				7C005E0F1FCA4F0B00F80278 /* ProgressHUD.swift */,
 			);
 			name = "Supporting Files";
 			path = BezPaketov;
@@ -541,13 +543,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56EB714C1E9A624E00BA1A8C /* BezPaketov.ttf in Resources */,
-				56EB713A1E9A5F7800BA1A8C /* Main.storyboard in Resources */,
+				7C005E121FCA4F0B00F80278 /* BezPaketov.ttf in Resources */,
+				7C005E051FCA4E5D00F80278 /* SignUp.storyboard in Resources */,
+				7C005E1F1FCA519400F80278 /* Info.plist in Resources */,
 				56EB712E1E9A5C5400BA1A8C /* LaunchScreen.storyboard in Resources */,
-				56EB71461E9A621E00BA1A8C /* Assets.xcassets in Resources */,
-				56EB714A1E9A624000BA1A8C /* iTunesArtwork in Resources */,
-				56EB715A1E9A63B800BA1A8C /* GoogleService-Info.plist in Resources */,
-				56EB713B1E9A5F7800BA1A8C /* SignUp.storyboard in Resources */,
+				7C005E041FCA4E5D00F80278 /* Main.storyboard in Resources */,
+				7C005E161FCA4F0B00F80278 /* iTunesArtwork in Resources */,
+				7C005E141FCA4F0B00F80278 /* GoogleService-Info.plist in Resources */,
+				7C005E111FCA4F0B00F80278 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +558,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C005E201FCA519400F80278 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,22 +746,20 @@
 			files = (
 				56EB71721E9A654600BA1A8C /* String+Ext.swift in Sources */,
 				56EB71CF1E9A697800BA1A8C /* MainViewController.swift in Sources */,
-				56EB714F1E9A626D00BA1A8C /* NetworkReachabilityManager.swift in Sources */,
 				56EB71CD1E9A697800BA1A8C /* ContainerViewCntroller.swift in Sources */,
 				56EB71AD1E9A687600BA1A8C /* BaseViewController.swift in Sources */,
 				56EB71411E9A5FC800BA1A8C /* SlimLogger.swift in Sources */,
 				56EB717D1E9A658000BA1A8C /* ConfirmView.swift in Sources */,
 				56EB718B1E9A65A700BA1A8C /* User.swift in Sources */,
+				7C005E101FCA4F0B00F80278 /* AppDelegate.swift in Sources */,
 				56EB717F1E9A658000BA1A8C /* SegmentControl.swift in Sources */,
 				56EB71801E9A658000BA1A8C /* TextField.swift in Sources */,
-				56EB71501E9A626D00BA1A8C /* ProgressHUD.swift in Sources */,
 				56EB71731E9A654600BA1A8C /* UIAlertController+Ext.swift in Sources */,
 				56EB71441E9A5FC800BA1A8C /* SlimLogglyDestinationConfig.swift in Sources */,
 				56EB718A1E9A65A700BA1A8C /* ProductsForRealm.swift in Sources */,
 				7C247FE21F40EC330083C10D /* UILabel+TextSpacing.swift in Sources */,
 				56EB71DA1E9A69CE00BA1A8C /* WeightViewController.swift in Sources */,
 				56EB71AC1E9A687600BA1A8C /* BaseLoginViewController.swift in Sources */,
-				56EB71371E9A5F6900BA1A8C /* AppDelegate.swift in Sources */,
 				56EB716D1E9A654600BA1A8C /* Keyboard.swift in Sources */,
 				56EB71C71E9A696100BA1A8C /* ListOfProductsByWeightTableViewCell.swift in Sources */,
 				56EB71881E9A65A700BA1A8C /* InfoAboutUserForOrder.swift in Sources */,
@@ -767,6 +769,7 @@
 				56EB716A1E9A654600BA1A8C /* BezierPath+Ext.swift in Sources */,
 				56EB71C01E9A692000BA1A8C /* DrawingUpOfAnOrderViewController.swift in Sources */,
 				56EB71421E9A5FC800BA1A8C /* SlimLoggerConfig.swift in Sources */,
+				7C005E171FCA4F0B00F80278 /* NetworkReachabilityManager.swift in Sources */,
 				56EB71891E9A65A700BA1A8C /* Product.swift in Sources */,
 				56EB71701E9A654600BA1A8C /* Notifier.swift in Sources */,
 				56EB716C1E9A654600BA1A8C /* GenericCollections+Ext.swift in Sources */,
@@ -776,6 +779,7 @@
 				56EB71751E9A654600BA1A8C /* View+Ext.swift in Sources */,
 				56EB716B1E9A654600BA1A8C /* Dispatch.swift in Sources */,
 				56EB71711E9A654600BA1A8C /* Storyboard+Ext.swift in Sources */,
+				7C005E181FCA4F0B00F80278 /* ProgressHUD.swift in Sources */,
 				56EB71431E9A5FC800BA1A8C /* SlimLogglyDestination.swift in Sources */,
 				56EB71C81E9A696100BA1A8C /* ListOfProductsByWeightViewController.swift in Sources */,
 				56EB71BA1E9A68F300BA1A8C /* CheckViewController.swift in Sources */,
@@ -788,7 +792,7 @@
 				56EB71D91E9A69CE00BA1A8C /* WeightCollectionViewCell.swift in Sources */,
 				56EB71BD1E9A690B00BA1A8C /* DetailsProductViewController.swift in Sources */,
 				56EB71B71E9A68DE00BA1A8C /* CategoryViewController.swift in Sources */,
-				56EB71481E9A622E00BA1A8C /* Constants.swift in Sources */,
+				7C005E131FCA4F0B00F80278 /* Constants.swift in Sources */,
 				56EB717C1E9A658000BA1A8C /* Button.swift in Sources */,
 				56EB71B61E9A68DE00BA1A8C /* CategoryTableViewCell.swift in Sources */,
 			);
