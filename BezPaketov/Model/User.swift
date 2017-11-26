@@ -71,18 +71,6 @@ class User: Object {
         }
     }
     
-    func fullName() -> String {
-        return (firstName ?? "") + " " + (lastName ?? "")
-    }
-    
-    func save() {
-        let realm = try! Realm()
-        
-        try! realm.write {
-            realm.add(User.currentUser ?? User(), update: true)
-        }
-    }
-    
     class func isAuthorized() -> Bool {
         let realm = try! Realm()
         

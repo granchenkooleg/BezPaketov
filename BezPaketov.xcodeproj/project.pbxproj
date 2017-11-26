@@ -65,12 +65,25 @@
 		56EB71DA1E9A69CE00BA1A8C /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB71D81E9A69CE00BA1A8C /* WeightViewController.swift */; };
 		7C1903DB1F9D2F1E00AC348D /* UIImageExt..swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1903DA1F9D2F1E00AC348D /* UIImageExt..swift */; };
 		7C247FE21F40EC330083C10D /* UILabel+TextSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C247FE11F40EC330083C10D /* UILabel+TextSpacing.swift */; };
-		7C58D1101FC8B82D00B01A8F /* PersonSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D10F1FC8B82D00B01A8F /* PersonSpec.swift */; };
-		7C58D1121FC8B85D00B01A8F /* BaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D1111FC8B85D00B01A8F /* BaseSpec.swift */; };
+		7CFC59031FCA0F2A00E7F4E9 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC59021FCA0F2900E7F4E9 /* UserSpec.swift */; };
+		7CFC590B1FCA152500E7F4E9 /* BaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC590A1FCA152500E7F4E9 /* BaseSpec.swift */; };
 		A641E0708A9E9E978CDC7384 /* Pods_BezPaketov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1DC0844F1F6130ADD6317B /* Pods_BezPaketov.framework */; };
+		C9D58A6D04CB0DCCE7ED9F50 /* Pods_BezPaketov_BezPaketovTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B4F4A93C989ABBE664AAE3 /* Pods_BezPaketov_BezPaketovTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7CFC59051FCA0F2A00E7F4E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56EB71181E9A5C5300BA1A8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56EB711F1E9A5C5400BA1A8C;
+			remoteInfo = BezPaketov;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		11B4F4A93C989ABBE664AAE3 /* Pods_BezPaketov_BezPaketovTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BezPaketov_BezPaketovTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41A57D3DAA34C320990BB297 /* Pods-BezPaketov-BezPaketovTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BezPaketov-BezPaketovTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BezPaketov-BezPaketovTests/Pods-BezPaketov-BezPaketovTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B90176B5D9D008A0039DAF5 /* Pods-BezPaketov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BezPaketov.release.xcconfig"; path = "Pods/Target Support Files/Pods-BezPaketov/Pods-BezPaketov.release.xcconfig"; sourceTree = "<group>"; };
 		56EB71201E9A5C5400BA1A8C /* BezPaketov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezPaketov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EB712D1E9A5C5400BA1A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -134,9 +147,12 @@
 		5A1DC0844F1F6130ADD6317B /* Pods_BezPaketov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BezPaketov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1903DA1F9D2F1E00AC348D /* UIImageExt..swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt..swift; sourceTree = "<group>"; };
 		7C247FE11F40EC330083C10D /* UILabel+TextSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+TextSpacing.swift"; sourceTree = "<group>"; };
-		7C58D10F1FC8B82D00B01A8F /* PersonSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonSpec.swift; sourceTree = "<group>"; };
-		7C58D1111FC8B85D00B01A8F /* BaseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSpec.swift; sourceTree = "<group>"; };
+		7CFC59001FCA0F2900E7F4E9 /* BezPaketovTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezPaketovTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CFC59021FCA0F2900E7F4E9 /* UserSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSpec.swift; sourceTree = "<group>"; };
+		7CFC59041FCA0F2A00E7F4E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CFC590A1FCA152500E7F4E9 /* BaseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSpec.swift; sourceTree = "<group>"; };
 		BAF2BCA138DAD1575C23EAB7 /* Pods-BezPaketov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BezPaketov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BezPaketov/Pods-BezPaketov.debug.xcconfig"; sourceTree = "<group>"; };
+		F64AA6187603367CF16D6EA4 /* Pods-BezPaketov-BezPaketovTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BezPaketov-BezPaketovTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BezPaketov-BezPaketovTests/Pods-BezPaketov-BezPaketovTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +164,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7CFC58FD1FCA0F2900E7F4E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D58A6D04CB0DCCE7ED9F50 /* Pods_BezPaketov_BezPaketovTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -155,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1DC0844F1F6130ADD6317B /* Pods_BezPaketov.framework */,
+				11B4F4A93C989ABBE664AAE3 /* Pods_BezPaketov_BezPaketovTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,7 +190,7 @@
 				56EB71221E9A5C5400BA1A8C /* BezPaketov */,
 				56EB715B1E9A653400BA1A8C /* Extension */,
 				7C58D10B1FC8B3AA00B01A8F /* Supporting Files */,
-				7C58D10C1FC8B73400B01A8F /* UnitTestRealmTests */,
+				7CFC59011FCA0F2900E7F4E9 /* BezPaketovTests */,
 				56EB713C1E9A5FAC00BA1A8C /* Slim */,
 				56EB71211E9A5C5400BA1A8C /* Products */,
 				8F8C5847425E978959F5027A /* Pods */,
@@ -177,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				56EB71201E9A5C5400BA1A8C /* BezPaketov.app */,
+				7CFC59001FCA0F2900E7F4E9 /* BezPaketovTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -403,14 +429,14 @@
 			path = BezPaketov;
 			sourceTree = "<group>";
 		};
-		7C58D10C1FC8B73400B01A8F /* UnitTestRealmTests */ = {
+		7CFC59011FCA0F2900E7F4E9 /* BezPaketovTests */ = {
 			isa = PBXGroup;
 			children = (
-				7C58D10F1FC8B82D00B01A8F /* PersonSpec.swift */,
-				7C58D1111FC8B85D00B01A8F /* BaseSpec.swift */,
+				7CFC59041FCA0F2A00E7F4E9 /* Info.plist */,
+				7CFC59021FCA0F2900E7F4E9 /* UserSpec.swift */,
+				7CFC590A1FCA152500E7F4E9 /* BaseSpec.swift */,
 			);
-			name = UnitTestRealmTests;
-			path = BezPaketov;
+			path = BezPaketovTests;
 			sourceTree = "<group>";
 		};
 		8F8C5847425E978959F5027A /* Pods */ = {
@@ -418,6 +444,8 @@
 			children = (
 				BAF2BCA138DAD1575C23EAB7 /* Pods-BezPaketov.debug.xcconfig */,
 				4B90176B5D9D008A0039DAF5 /* Pods-BezPaketov.release.xcconfig */,
+				F64AA6187603367CF16D6EA4 /* Pods-BezPaketov-BezPaketovTests.debug.xcconfig */,
+				41A57D3DAA34C320990BB297 /* Pods-BezPaketov-BezPaketovTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -445,6 +473,27 @@
 			productReference = 56EB71201E9A5C5400BA1A8C /* BezPaketov.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7CFC58FF1FCA0F2900E7F4E9 /* BezPaketovTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CFC59071FCA0F2A00E7F4E9 /* Build configuration list for PBXNativeTarget "BezPaketovTests" */;
+			buildPhases = (
+				629B31CD194BBAF5D52B2E40 /* [CP] Check Pods Manifest.lock */,
+				7CFC58FC1FCA0F2900E7F4E9 /* Sources */,
+				7CFC58FD1FCA0F2900E7F4E9 /* Frameworks */,
+				7CFC58FE1FCA0F2900E7F4E9 /* Resources */,
+				19AED7D285B652FAFACF4C98 /* [CP] Embed Pods Frameworks */,
+				B087C081225A9778E0F53A28 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7CFC59061FCA0F2A00E7F4E9 /* PBXTargetDependency */,
+			);
+			name = BezPaketovTests;
+			productName = BezPaketovTests;
+			productReference = 7CFC59001FCA0F2900E7F4E9 /* BezPaketovTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -460,6 +509,11 @@
 						DevelopmentTeam = 224SJKKLQ3;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
+					};
+					7CFC58FF1FCA0F2900E7F4E9 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 56EB711F1E9A5C5400BA1A8C;
 					};
 				};
 			};
@@ -477,6 +531,7 @@
 			projectRoot = "";
 			targets = (
 				56EB711F1E9A5C5400BA1A8C /* BezPaketov */,
+				7CFC58FF1FCA0F2900E7F4E9 /* BezPaketovTests */,
 			);
 		};
 /* End PBXProject section */
@@ -493,6 +548,13 @@
 				56EB714A1E9A624000BA1A8C /* iTunesArtwork in Resources */,
 				56EB715A1E9A63B800BA1A8C /* GoogleService-Info.plist in Resources */,
 				56EB713B1E9A5F7800BA1A8C /* SignUp.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CFC58FE1FCA0F2900E7F4E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +597,94 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BezPaketov/Pods-BezPaketov-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		19AED7D285B652FAFACF4C98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BezPaketov-BezPaketovTests/Pods-BezPaketov-BezPaketovTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/VK-ios-sdk/VK_ios_sdk.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VK_ios_sdk.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BezPaketov-BezPaketovTests/Pods-BezPaketov-BezPaketovTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		629B31CD194BBAF5D52B2E40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BezPaketov-BezPaketovTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B087C081225A9778E0F53A28 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BezPaketov-BezPaketovTests/Pods-BezPaketov-BezPaketovTests-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BezPaketov-BezPaketovTests/Pods-BezPaketov-BezPaketovTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F7954F13FB75C6FBDD76C8D9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,8 +702,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -573,8 +721,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -599,7 +745,6 @@
 				56EB714F1E9A626D00BA1A8C /* NetworkReachabilityManager.swift in Sources */,
 				56EB71CD1E9A697800BA1A8C /* ContainerViewCntroller.swift in Sources */,
 				56EB71AD1E9A687600BA1A8C /* BaseViewController.swift in Sources */,
-				7C58D1101FC8B82D00B01A8F /* PersonSpec.swift in Sources */,
 				56EB71411E9A5FC800BA1A8C /* SlimLogger.swift in Sources */,
 				56EB717D1E9A658000BA1A8C /* ConfirmView.swift in Sources */,
 				56EB718B1E9A65A700BA1A8C /* User.swift in Sources */,
@@ -640,7 +785,6 @@
 				56EB71691E9A654600BA1A8C /* APIRequest.swift in Sources */,
 				7C1903DB1F9D2F1E00AC348D /* UIImageExt..swift in Sources */,
 				56EB71D51E9A69B200BA1A8C /* SearchViewController.swift in Sources */,
-				7C58D1121FC8B85D00B01A8F /* BaseSpec.swift in Sources */,
 				56EB71D91E9A69CE00BA1A8C /* WeightCollectionViewCell.swift in Sources */,
 				56EB71BD1E9A690B00BA1A8C /* DetailsProductViewController.swift in Sources */,
 				56EB71B71E9A68DE00BA1A8C /* CategoryViewController.swift in Sources */,
@@ -650,7 +794,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7CFC58FC1FCA0F2900E7F4E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CFC59031FCA0F2A00E7F4E9 /* UserSpec.swift in Sources */,
+				7CFC590B1FCA152500E7F4E9 /* BaseSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7CFC59061FCA0F2A00E7F4E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56EB711F1E9A5C5400BA1A8C /* BezPaketov */;
+			targetProxy = 7CFC59051FCA0F2A00E7F4E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		56EB712C1E9A5C5400BA1A8C /* LaunchScreen.storyboard */ = {
@@ -797,6 +958,34 @@
 			};
 			name = Release;
 		};
+		7CFC59081FCA0F2A00E7F4E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F64AA6187603367CF16D6EA4 /* Pods-BezPaketov-BezPaketovTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BezPaketovTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Home.BezPaketovTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BezPaketov.app/BezPaketov";
+			};
+			name = Debug;
+		};
+		7CFC59091FCA0F2A00E7F4E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41A57D3DAA34C320990BB297 /* Pods-BezPaketov-BezPaketovTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BezPaketovTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Home.BezPaketovTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BezPaketov.app/BezPaketov";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -814,6 +1003,15 @@
 			buildConfigurations = (
 				56EB71331E9A5C5400BA1A8C /* Debug */,
 				56EB71341E9A5C5400BA1A8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CFC59071FCA0F2A00E7F4E9 /* Build configuration list for PBXNativeTarget "BezPaketovTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CFC59081FCA0F2A00E7F4E9 /* Debug */,
+				7CFC59091FCA0F2A00E7F4E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

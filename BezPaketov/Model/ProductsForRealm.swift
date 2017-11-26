@@ -37,6 +37,7 @@ class ProductsForRealm : Object {
     //dynamic var created = Date()
     
     dynamic var owner: User?
+    let owners = LinkingObjects(fromType: User.self, property: "products")
     
     override static func primaryKey() -> String? {
         return "id"
