@@ -62,7 +62,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
                         }
                         
                         // Call API method
-                        self.listOfProduct {[weak self] _ in
+                        self.listOfProduct { [weak self] in
                             self?.productsList = Product().allProducts().filter { Double($0.price_sale)! > Double(0.00) }
                             self?.tableView.reloadData()
                             self?.spiner.stopAnimating()
@@ -76,7 +76,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
             }
             
             // Call API method
-            listOfProduct {[weak self] _ in
+            listOfProduct {[weak self] in
                 self?.productsList = Product().allProducts().filter { Double($0.price_sale)! > Double(0.00) }
                 self?.tableView.reloadData()
                 self?.spiner.stopAnimating()
@@ -174,7 +174,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
             
         }
         
-        Dispatch.mainQueue.async { _ in
+        Dispatch.mainQueue.async { 
             cell.thubnailImageView?.sd_setImage(with: URL(string: (productDetails.icon)))
         }
         
@@ -188,7 +188,7 @@ class ListOfProductsByWeightViewControllerSegment: BaseViewController, UITableVi
             cell.priceSaleLabel?.text = productDetails.price_sale +  "  грн."
             // Create attributed string for strikethroughStyleAttributeName
             let myString = productDetails.price + " грн."
-            let myAttribute = [ NSStrikethroughStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue ]
+            let myAttribute = [ NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue ]
             let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
             
             // Set attributed text on a UILabel
@@ -262,7 +262,7 @@ class ListOfProductsByWeightViewController: ListOfProductsByWeightViewController
         
         let products = Product().allProducts()
         guard products.count != 0 else {
-            listOfProduct {[weak self] _ in
+            listOfProduct {[weak self] in
                 self?.productsList = Product().allProducts().filter { (self?.idPodcategory == $0.category_id && self?.weightOfWeightVC == $0.weight)}
                 if self?.productsList.isEmpty == true {
                     self?.productsList = products.filter {(self?.idPodcategory == $0.category_id && $0.weight == "")}

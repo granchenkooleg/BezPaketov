@@ -65,7 +65,7 @@ class Keyboard: Notifier {
         UIWindow.mainWindow.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    func tap(_ sender: UITapGestureRecognizer) {
+    @objc func tap(_ sender: UITapGestureRecognizer) {
         sender.view?.endEditing(true)
     }
     

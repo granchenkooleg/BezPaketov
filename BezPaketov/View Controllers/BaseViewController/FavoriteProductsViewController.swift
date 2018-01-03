@@ -172,7 +172,7 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
             self?.basketHandler?()
         }
         
-        Dispatch.mainQueue.async { _ in
+        Dispatch.mainQueue.async { 
             cell.thubnailImageView?.sd_setImage(with: URL(string: (productDetails.icon)))
         }
         
@@ -187,7 +187,7 @@ class FavoriteProductsViewController: BaseViewController, UITableViewDataSource,
             
             // Create attributed string for strikethroughStyleAttributeName
             let myString = productDetails.price + " грн."
-            let myAttribute = [ NSStrikethroughStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue ]
+            let myAttribute = [ NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue ]
             let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
             
             // Set attributed text on a UILabel

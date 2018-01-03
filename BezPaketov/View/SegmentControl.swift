@@ -45,7 +45,7 @@ final class SegmentedControl: UIControl {
         selectedSegment = NSNotFound
     }
     
-    func selectSegmentTap(_ sender: UIControl) {
+    @objc func selectSegmentTap(_ sender: UIControl) {
         if let index = controls.index(of: sender) , !sender.isSelected {
             
             guard (delegate?.segmentedControl?(self, shouldSelectSegment:index) ?? true) else { return }

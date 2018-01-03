@@ -21,21 +21,21 @@ class InfoAboutUserForOrder : Object {
     
     
     
-    dynamic var idOrder = someString  //UUID().uuidString
-    dynamic var name: String = ""
-    dynamic var phone: String = ""
-    dynamic var city: String? = ""
-    dynamic var region: String? = ""
-    dynamic var street: String? = ""
-    dynamic var house: String? = ""
-    dynamic var porch: String? = ""
-    dynamic var apartment: String? = ""
-    dynamic var floor: String? = ""
-    dynamic var commit: String? = ""
+    @objc dynamic var idOrder = someString  //UUID().uuidString
+    @objc dynamic var name: String = ""
+    @objc dynamic var phone: String = ""
+    @objc dynamic var city: String? = ""
+    @objc dynamic var region: String? = ""
+    @objc dynamic var street: String? = ""
+    @objc dynamic var house: String? = ""
+    @objc dynamic var porch: String? = ""
+    @objc dynamic var apartment: String? = ""
+    @objc dynamic var floor: String? = ""
+    @objc dynamic var commit: String? = ""
     
     //dynamic var created = Date()
     
-    dynamic var owner: User?
+    @objc dynamic var owner: User?
     
     override class func primaryKey() -> String? {
         return "idOrder"

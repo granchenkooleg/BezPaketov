@@ -59,7 +59,7 @@ extension UIView {
         return subview
     }
     
-    @discardableResult func add<T: UIView>(_ subview: T, _ layout: (_ make: ConstraintMaker) -> Void) -> T {
+    @discardableResult func add<T: UIView>(_ subview: T, _ layout: (_ make: ConstraintMaker) -> ()) -> T {
         addSubview(subview)
         subview.snp.makeConstraints(layout)
         return subview
@@ -72,7 +72,7 @@ extension UIView {
     
     // MARK: - Regular Animation
     
-    class func performAnimated( _ animated: Bool, animation: (Void) -> Void) {
+    class func performAnimated( _ animated: Bool, animation: () -> ()) {
         if animated {
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationBeginsFromCurrentState(true)

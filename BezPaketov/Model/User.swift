@@ -14,13 +14,13 @@ var token: NotificationToken?
 
 class User: Object {
     
-    dynamic var id: String? = "1" // or dynamic var id = UUID().uuidString
-    dynamic var idUser = ""
-    dynamic var firstName: String? = ""
-    dynamic var lastName: String? = ""
-    dynamic var email: String? = ""
-    dynamic var password: String? = ""
-    dynamic var phone: String? = ""
+    @objc dynamic var id: String? = "1" // or dynamic var id = UUID().uuidString
+    @objc dynamic var idUser = ""
+    @objc dynamic var firstName: String? = ""
+    @objc dynamic var lastName: String? = ""
+    @objc dynamic var email: String? = ""
+    @objc dynamic var password: String? = ""
+    @objc dynamic var phone: String? = ""
     var products = List<ProductsForRealm>()
     var homeUserData = List<InfoAboutUserForOrder>()
     

@@ -19,13 +19,13 @@ struct Dispatch {
     
     fileprivate var queue: DispatchQueue
     
-    func sync(_ block: ((Void) -> Void)?) {
+    func sync(_ block: (() -> ())?) {
         if let block = block {
             queue.sync(execute: block)
         }
     }
     
-    func async(_ block: ((Void) -> Void)?) {
+    func async(_ block: (() -> ())?) {
         if let block = block {
             queue.async(execute: block)
         }
@@ -33,13 +33,13 @@ struct Dispatch {
     
     fileprivate static let delayMultiplier = Float(NSEC_PER_SEC)
     
-    func after(_ delay: Float, block: ((Void) -> Void)?) {
+    func after(_ delay: Float, block: (() -> ())?) {
         if let block = block {
             queue.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Dispatch.delayMultiplier)) / Double(NSEC_PER_SEC), execute: block)
         }
     }
     
-    func fetch<T>(_ block: @escaping ((Void) -> T), completion: @escaping ((T) -> Void)) {
+    func fetch<T>(_ block: @escaping (() -> T), completion: @escaping ((T) -> ())) {
         async {
             let object = block()
             Dispatch.mainQueue.async({ completion(object) })
@@ -60,9 +60,9 @@ struct Dispatch {
 
 final class DispatchTask {
     
-    var block: ((Void) -> Void)?
+    var block: ((() -> ()))?
     
-    init(_ delay: Float = 0, _ block: @escaping (Void) -> Void) {
+    init(_ delay: Float = 0, _ block: @escaping () -> ()) {
         self.block = block
         Dispatch.mainQueue.after(delay) { [weak self] () -> Void in
             if let block = self?.block {

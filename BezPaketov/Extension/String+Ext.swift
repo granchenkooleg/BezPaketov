@@ -64,7 +64,7 @@ extension NSString {
     
     func heightWithFont(_ font: UIFont, width: CGFloat) -> CGFloat {
         let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let height = boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName:font], context: nil).height
+        let height = boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:font], context: nil).height
         return ceil(height)
     }
     

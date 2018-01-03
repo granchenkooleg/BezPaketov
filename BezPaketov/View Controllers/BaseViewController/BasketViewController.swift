@@ -33,7 +33,7 @@ class BasketViewController: BaseViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BasketTableViewCell
         
         let productDetails = productsInBasket[indexPath.row]
-        Dispatch.mainQueue.async { _ in
+        Dispatch.mainQueue.async { 
             cell.thubnailImageView?.sd_setImage(with: URL(string: (productDetails.icon) ?? ""))
         }
         cell.productDetail = productDetails

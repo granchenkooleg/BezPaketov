@@ -295,7 +295,7 @@ class Menu: UIView, UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
         
         let category = categoryContainer[indexPath.row]
-        Dispatch.mainQueue.async { _ in
+        Dispatch.mainQueue.async { 
             if indexPath.row == 0 {
                 cell.thubnailImageView?.image = UIImage(named: "ic_main")
                 cell.nameLabel?.text = "Главная"
@@ -311,7 +311,7 @@ class Menu: UIView, UITableViewDataSource, UITableViewDelegate {
     
     
     // NotificationCenter from CatVC
-    func methodOfReceivedNotification2(notification: Notification) {
+    @objc func methodOfReceivedNotification2(notification: Notification) {
         getAllcat()
         self.tableView?.reloadData()
     }

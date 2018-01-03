@@ -145,7 +145,7 @@ class LoginViewController: BaseLoginViewController, GIDSignInUIDelegate, GIDSign
     }
     
     @IBAction func faceBookLogin(_ sender: Button) {
-        loginManager.logIn([ .publicProfile, .userFriends, .email ], viewController: self) { loginResult in
+        loginManager.logIn(readPermissions: [ .publicProfile, .userFriends, .email ], viewController: self, completion: { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)
@@ -188,7 +188,7 @@ class LoginViewController: BaseLoginViewController, GIDSignInUIDelegate, GIDSign
                     self?.chooseNextContoller()
                 })
             }
-        }
+        })
     }
     
     struct MyProfileRequest: GraphRequestProtocol {

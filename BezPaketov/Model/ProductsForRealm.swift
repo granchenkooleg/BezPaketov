@@ -12,30 +12,30 @@ import RealmSwift
 
 class ProductsForRealm : Object {
     
-    dynamic var quantity = ""
-    dynamic var id: String = ""
-    dynamic var descriptionForProduct: String? = ""
-    dynamic var proteins: String? = ""
-    dynamic var calories: String? = ""
-    dynamic var zhiry: String? = ""
-    dynamic var favorite: String? = ""
-    dynamic var category_id: String? = ""
-    dynamic var brand: String? = ""
-    dynamic var price_sale: String? = ""
-    dynamic var weight: String? = ""
-    dynamic var status: String? = ""
-    dynamic var expire_date: String? = ""
-    dynamic var price: String? = ""
-    dynamic var created_at: String? = ""
-    dynamic var icon: String? = ""
-    dynamic var category_name: String? = ""
-    dynamic var name: String? = ""
-    dynamic var uglevody: String? = ""
-    dynamic var units: String? = ""
-    dynamic var image: Data? = nil
+    @objc dynamic var quantity = ""
+    @objc dynamic var id: String = ""
+    @objc dynamic var descriptionForProduct: String? = ""
+    @objc dynamic var proteins: String? = ""
+    @objc dynamic var calories: String? = ""
+    @objc dynamic var zhiry: String? = ""
+    @objc dynamic var favorite: String? = ""
+    @objc dynamic var category_id: String? = ""
+    @objc dynamic var brand: String? = ""
+    @objc dynamic var price_sale: String? = ""
+    @objc dynamic var weight: String? = ""
+    @objc dynamic var status: String? = ""
+    @objc dynamic var expire_date: String? = ""
+    @objc dynamic var price: String? = ""
+    @objc dynamic var created_at: String? = ""
+    @objc dynamic var icon: String? = ""
+    @objc dynamic var category_name: String? = ""
+    @objc dynamic var name: String? = ""
+    @objc dynamic var uglevody: String? = ""
+    @objc dynamic var units: String? = ""
+    @objc dynamic var image: Data? = nil
     //dynamic var created = Date()
     
-    dynamic var owner: User?
+    @objc dynamic var owner: User?
     
     override static func primaryKey() -> String? {
         return "id"

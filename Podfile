@@ -9,7 +9,7 @@ target 'BezPaketov' do
 
   pod 'RealmSwift'
   pod 'Alamofire', '~> 4.0.0'
-  pod 'SnapKit'
+  pod 'SnapKit', '~> 3.2.0'
   pod 'SwiftyJSON'
   pod 'FacebookCore'
   pod 'FacebookLogin'

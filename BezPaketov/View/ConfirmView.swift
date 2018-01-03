@@ -229,7 +229,7 @@ class ConfirmView: UIView {
         contentView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         contentView.alpha = 0.0
         setupSignal()
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseIn , animations: { _ in
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseIn , animations: {
             self.contentView.transform = CGAffineTransform.identity
             }, completion: nil)
         UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn , animations: { () -> Void in
@@ -240,7 +240,7 @@ class ConfirmView: UIView {
     }
     
     func hide() {
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .curveEaseIn , animations: { _ in
+        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .curveEaseIn , animations: {
             self.contentView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
             self.contentView.alpha = 0.0
             self.backgroundColor = UIColor.clear
@@ -249,12 +249,12 @@ class ConfirmView: UIView {
         })
     }
     
-    internal func cancel(_ sender: AnyObject) {
+    @objc internal func cancel(_ sender: AnyObject) {
         cancelBlock?()
         hide()
     }
     
-    internal func approve(_ sender: AnyObject) {
+    @objc internal func approve(_ sender: AnyObject) {
 //        SignalRequest.aproveTrade {[weak self] json in
 //            if let result = json?["result"] , result == true {
 //                UserRequest.getStatistics()

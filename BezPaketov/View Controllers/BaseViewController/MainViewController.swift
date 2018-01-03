@@ -110,7 +110,7 @@ class MainViewController: BaseViewController {
     }
     
     // NotificationCenter
-    func methodOfReceivedNotificationForMainVC(notification: Notification){
+    @objc func methodOfReceivedNotificationForMainVC(notification: Notification){
         // Call API method
         self.banner()
         if let queue = self.inactiveQueue {
@@ -128,7 +128,7 @@ class MainViewController: BaseViewController {
         let anotherQueue = DispatchQueue(label: "com.appcoda.anotherQueue", qos: .userInitiated, attributes: [.concurrent, .initiallyInactive])
         inactiveQueue = anotherQueue
         
-        anotherQueue.async(execute: { _ in
+        anotherQueue.async(execute: { 
             //  Request for bannerImage
             let param: Dictionary = ["salt" : "d790dk8b82013321ef2ddf1dnu592b79"]
             UserRequest.bannerImageforMainVC(param as [String : AnyObject], completion: {json in

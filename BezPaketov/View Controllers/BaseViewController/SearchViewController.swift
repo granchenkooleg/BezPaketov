@@ -35,7 +35,7 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         
         products = Product().allProducts()
         guard products.count != 0 else {
-            searchRequest {[weak self] _ in
+            searchRequest {[weak self] in
                 self?.products = Product().allProducts()
                 self?.searchProduct = self?.products ?? []
                 self?.tableView.reloadData()
@@ -96,7 +96,7 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
         })
     }
     
-    func searchTextChanged(sender: UITextField) {
+    @objc func searchTextChanged(sender: UITextField) {
         if let text = sender.text {
             if text.isEmpty {
                 searchProduct = products;
@@ -136,7 +136,7 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
             self.updateProductInfo()
         }
         
-        Dispatch.mainQueue.async { _ in
+        Dispatch.mainQueue.async { 
             cell.thubnailImageView?.sd_setImage(with: URL(string: (productDetails.icon)))
         }
         
@@ -150,7 +150,7 @@ class SearchViewController: BaseViewController, UITableViewDataSource, UITableVi
             cell.priceSaleLabel?.text = productDetails.price_sale +  "  грн."
             // Create attributed string for strikethroughStyleAttributeName
             let myString = productDetails.price + " грн."
-            let myAttribute = [ NSStrikethroughStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue ]
+            let myAttribute = [ NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue ]
             let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
             
             // Set attributed text on a UILabel

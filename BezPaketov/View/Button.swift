@@ -10,22 +10,27 @@ import Foundation
 import UIKit
 import SnapKit
 
-protocol Highlightable: class {
-    var highlighted: Bool { get set }
-}
-
-protocol Selectable: class {
-    var selected: Bool { get set }
-}
-
-extension UIControl: Highlightable, Selectable {}
-
-extension UILabel: Highlightable, Selectable {
-    var selected: Bool {
-        get { return isHighlighted }
-        set { isHighlighted = newValue }
-    }
-}
+//protocol Highlightable: class {
+//    var highlighted: Bool { get set }
+//}
+//
+//protocol Selectable: class {
+//    var selected: Bool { get set }
+//}
+//
+//extension UIControl: Selectable {
+//    var selected: Bool {
+//        get { return isHighlighted }
+//        set { isHighlighted = newValue }
+//    }
+//}
+//
+//extension UILabel: Selectable {
+//    var selected: Bool {
+//        get { return isHighlighted }
+//        set { isHighlighted = newValue }
+//    }
+//}
 
 class Button : UIButton {
     
@@ -116,14 +121,14 @@ class Button : UIButton {
     override var isHighlighted: Bool {
         didSet {
             update()
-            highlightings.all({ ($0 as? Highlightable)?.highlighted = isHighlighted })
+//            highlightings.all({ ($0 as? Highlightable)?.highlighted = isHighlighted })
         }
     }
     
     override var isSelected: Bool {
         didSet {
             update()
-            selectings.all({ ($0 as? Selectable)?.selected = isSelected })
+//            selectings.all({ ($0 as? Selectable)?.selected = isSelected })
         }
     }
     
@@ -178,7 +183,7 @@ class Button : UIButton {
         self.clickHelper = clickHelper
     }
     
-    func performAction() {
+    @objc func performAction() {
         clickHelper?(self)
     }
 }

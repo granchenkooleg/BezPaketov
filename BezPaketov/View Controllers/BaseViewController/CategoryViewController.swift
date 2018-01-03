@@ -35,7 +35,7 @@ class CategoryViewControllerSegment: BaseViewController,UITableViewDataSource, U
             return
         }
         
-        _getAllCategory { [weak self] _ in
+        _getAllCategory { [weak self] in
             self?.categoryContainer = Category().allCategories()
             //                self?.spiner.stopAnimating()
             self?.tableView?.reloadData()
@@ -46,8 +46,8 @@ class CategoryViewControllerSegment: BaseViewController,UITableViewDataSource, U
     }
     
     // NotificationCenter
-    func methodOfReceivedNotification(notification: Notification){
-        _getAllCategory { [weak self] _ in
+    @objc func methodOfReceivedNotification(notification: Notification){
+        _getAllCategory { [weak self] in
             self?.categoryContainer = Category().allCategories()
             //                self?.spiner.stopAnimating()
             self?.tableView?.reloadData()
@@ -111,7 +111,7 @@ class CategoryViewControllerSegment: BaseViewController,UITableViewDataSource, U
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
         
         let category = categoryContainer[indexPath.row]
-        Dispatch.mainQueue.async { _ in
+        Dispatch.mainQueue.async {
             //cell.thubnailImageView?.image = UIImage(data: category.image ?? Data())
             cell.thubnailImageView?.sd_setImage(with: URL(string: (category.icon)))
             cell.nameLabel?.text = category.name
@@ -250,7 +250,7 @@ class CategoryViewController: BaseViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
         
         let category = categoriesList[indexPath.row]
-        Dispatch.mainQueue.async { _ in
+        Dispatch.mainQueue.async {
             cell.thubnailImageView?.sd_setImage(with: URL(string: (category.icon)))
             cell.nameLabel?.text = category.name
         }

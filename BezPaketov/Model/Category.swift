@@ -35,13 +35,13 @@ struct CategoryStruct {
 
 class Category: Object {
     
-    dynamic var id = ""
-    dynamic var icon = ""
-    dynamic var name = ""
-    dynamic var created_at = ""
-    dynamic var units = ""
-    dynamic var category_id = ""
-    dynamic var image: Data? = nil
+    @objc dynamic var id = ""
+    @objc dynamic var icon = ""
+    @objc dynamic var name = ""
+    @objc dynamic var created_at = ""
+    @objc dynamic var units = ""
+    @objc dynamic var category_id = ""
+    @objc dynamic var image: Data? = nil
     
     override static func primaryKey() -> String? {
         return "id"

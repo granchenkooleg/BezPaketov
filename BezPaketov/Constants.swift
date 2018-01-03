@@ -22,10 +22,10 @@ struct Constants {
     static let amountTitleArray = ["$25", "$50", "$75", "$100", "$200", "$500", "$750", "$1000"]
 }
 
-typealias Block = (Void) -> Void
-typealias ObjectBlock = (AnyObject?) -> Void
-typealias FailureBlock = (NSError?) -> Void
-typealias BooleanBlock = (Bool) -> Void
+typealias Block = () -> ()
+typealias ObjectBlock = (AnyObject?) -> ()
+typealias FailureBlock = (NSError?) -> ()
+typealias BooleanBlock = (Bool) -> ()
 
 extension URL {
     
